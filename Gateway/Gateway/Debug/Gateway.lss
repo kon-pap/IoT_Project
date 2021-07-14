@@ -1,0 +1,1475 @@
+
+Gateway.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000008ae  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000016c  00800060  000008ae  00000942  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000010  008001cc  008001cc  00000aae  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000aae  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000ae0  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000001a8  00000000  00000000  00000b1c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001f36  00000000  00000000  00000cc4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000b19  00000000  00000000  00002bfa  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000e4b  00000000  00000000  00003713  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000400  00000000  00000000  00004560  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000068b  00000000  00000000  00004960  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000ffa  00000000  00000000  00004feb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000158  00000000  00000000  00005fe5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 dd 01 	jmp	0x3ba	; 0x3ba <__vector_11>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	11 e0       	ldi	r17, 0x01	; 1
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ee ea       	ldi	r30, 0xAE	; 174
+  68:	f8 e0       	ldi	r31, 0x08	; 8
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	ac 3c       	cpi	r26, 0xCC	; 204
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	21 e0       	ldi	r18, 0x01	; 1
+  78:	ac ec       	ldi	r26, 0xCC	; 204
+  7a:	b1 e0       	ldi	r27, 0x01	; 1
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	ac 3d       	cpi	r26, 0xDC	; 220
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 2e 03 	call	0x65c	; 0x65c <main>
+  8a:	0c 94 55 04 	jmp	0x8aa	; 0x8aa <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <addSensorESP>:
+	usart_transmit_string("ESP:sensorValue: \"");
+	usart_transmit_string(sensorName);
+	usart_transmit_string("\"[");
+	usart_transmit_string(sensorValue);
+	usart_transmit_string("]\n");
+}
+  92:	cf 93       	push	r28
+  94:	df 93       	push	r29
+  96:	ec 01       	movw	r28, r24
+  98:	80 e6       	ldi	r24, 0x60	; 96
+  9a:	90 e0       	ldi	r25, 0x00	; 0
+  9c:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  a0:	ce 01       	movw	r24, r28
+  a2:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  a6:	81 e7       	ldi	r24, 0x71	; 113
+  a8:	90 e0       	ldi	r25, 0x00	; 0
+  aa:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  ae:	df 91       	pop	r29
+  b0:	cf 91       	pop	r28
+  b2:	08 95       	ret
+
+000000b4 <apStartESP>:
+  b4:	84 e7       	ldi	r24, 0x74	; 116
+  b6:	90 e0       	ldi	r25, 0x00	; 0
+  b8:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  bc:	08 95       	ret
+
+000000be <getValueESP>:
+  be:	cf 93       	push	r28
+  c0:	df 93       	push	r29
+  c2:	ec 01       	movw	r28, r24
+  c4:	8e ed       	ldi	r24, 0xDE	; 222
+  c6:	90 e0       	ldi	r25, 0x00	; 0
+  c8:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  cc:	ce 01       	movw	r24, r28
+  ce:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  d2:	81 e7       	ldi	r24, 0x71	; 113
+  d4:	90 e0       	ldi	r25, 0x00	; 0
+  d6:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  da:	df 91       	pop	r29
+  dc:	cf 91       	pop	r28
+  de:	08 95       	ret
+
+000000e0 <hostESP>:
+  e0:	cf 93       	push	r28
+  e2:	df 93       	push	r29
+  e4:	ec 01       	movw	r28, r24
+  e6:	8e ee       	ldi	r24, 0xEE	; 238
+  e8:	90 e0       	ldi	r25, 0x00	; 0
+  ea:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  ee:	ce 01       	movw	r24, r28
+  f0:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  f4:	81 e7       	ldi	r24, 0x71	; 113
+  f6:	90 e0       	ldi	r25, 0x00	; 0
+  f8:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+  fc:	df 91       	pop	r29
+  fe:	cf 91       	pop	r28
+ 100:	08 95       	ret
+
+00000102 <passwESP>:
+ 102:	cf 93       	push	r28
+ 104:	df 93       	push	r29
+ 106:	ec 01       	movw	r28, r24
+ 108:	8c ef       	ldi	r24, 0xFC	; 252
+ 10a:	90 e0       	ldi	r25, 0x00	; 0
+ 10c:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+ 110:	ce 01       	movw	r24, r28
+ 112:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+ 116:	81 e7       	ldi	r24, 0x71	; 113
+ 118:	90 e0       	ldi	r25, 0x00	; 0
+ 11a:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+ 11e:	df 91       	pop	r29
+ 120:	cf 91       	pop	r28
+ 122:	08 95       	ret
+
+00000124 <restartESP>:
+ 124:	8c e0       	ldi	r24, 0x0C	; 12
+ 126:	91 e0       	ldi	r25, 0x01	; 1
+ 128:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+ 12c:	08 95       	ret
+
+0000012e <ssidESP>:
+ * SSID to be used for the connection
+ * @param[in] ssid
+*/
+void ssidESP
+(char ssid[])
+{
+ 12e:	cf 93       	push	r28
+ 130:	df 93       	push	r29
+ 132:	ec 01       	movw	r28, r24
+	usart_transmit_string("ESP:ssid: \"");
+ 134:	82 e3       	ldi	r24, 0x32	; 50
+ 136:	91 e0       	ldi	r25, 0x01	; 1
+ 138:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+	usart_transmit_string(ssid);
+ 13c:	ce 01       	movw	r24, r28
+ 13e:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+	usart_transmit_string("\"\n");
+ 142:	81 e7       	ldi	r24, 0x71	; 113
+ 144:	90 e0       	ldi	r25, 0x00	; 0
+ 146:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+}
+ 14a:	df 91       	pop	r29
+ 14c:	cf 91       	pop	r28
+ 14e:	08 95       	ret
+
+00000150 <sensorValueESPByte>:
+* @param[in] sensorName
+* @param[in] sensorValue
+*/
+void sensorValueESPByte
+(char sensorName[], char sensorValue)
+{
+ 150:	0f 93       	push	r16
+ 152:	1f 93       	push	r17
+ 154:	cf 93       	push	r28
+ 156:	8c 01       	movw	r16, r24
+ 158:	c6 2f       	mov	r28, r22
+	usart_transmit_string("ESP:sensorValue: \"");
+ 15a:	89 e1       	ldi	r24, 0x19	; 25
+ 15c:	91 e0       	ldi	r25, 0x01	; 1
+ 15e:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+	usart_transmit_string(sensorName);
+ 162:	c8 01       	movw	r24, r16
+ 164:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+	usart_transmit_string("\"[");
+ 168:	8c e2       	ldi	r24, 0x2C	; 44
+ 16a:	91 e0       	ldi	r25, 0x01	; 1
+ 16c:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+	usart_transmit(sensorValue);
+ 170:	8c 2f       	mov	r24, r28
+ 172:	0e 94 37 04 	call	0x86e	; 0x86e <usart_transmit>
+	usart_transmit_string("]\n");
+ 176:	8f e2       	ldi	r24, 0x2F	; 47
+ 178:	91 e0       	ldi	r25, 0x01	; 1
+ 17a:	0e 94 3f 04 	call	0x87e	; 0x87e <usart_transmit_string>
+}
+ 17e:	cf 91       	pop	r28
+ 180:	1f 91       	pop	r17
+ 182:	0f 91       	pop	r16
+ 184:	08 95       	ret
+
+00000186 <parsedValue>:
+ * @param[in] data message sent by getValueESP
+ * @param[out] parsedValue single byte of data containing the value of sensor
+*/
+unsigned char parsedValue
+(unsigned char data[])
+{
+ 186:	dc 01       	movw	r26, r24
+	int j = 0;
+	while (data[j] != '"') j++;
+ 188:	8c 91       	ld	r24, X
+ 18a:	82 32       	cpi	r24, 0x22	; 34
+ 18c:	59 f0       	breq	.+22     	; 0x1a4 <parsedValue+0x1e>
+ 18e:	fd 01       	movw	r30, r26
+ 190:	31 96       	adiw	r30, 0x01	; 1
+ 192:	20 e0       	ldi	r18, 0x00	; 0
+ 194:	30 e0       	ldi	r19, 0x00	; 0
+ 196:	2f 5f       	subi	r18, 0xFF	; 255
+ 198:	3f 4f       	sbci	r19, 0xFF	; 255
+ 19a:	a9 01       	movw	r20, r18
+ 19c:	91 91       	ld	r25, Z+
+ 19e:	92 32       	cpi	r25, 0x22	; 34
+ 1a0:	d1 f7       	brne	.-12     	; 0x196 <parsedValue+0x10>
+ 1a2:	02 c0       	rjmp	.+4      	; 0x1a8 <parsedValue+0x22>
+ 1a4:	40 e0       	ldi	r20, 0x00	; 0
+ 1a6:	50 e0       	ldi	r21, 0x00	; 0
+	
+	return data[j+1];
+ 1a8:	fd 01       	movw	r30, r26
+ 1aa:	e4 0f       	add	r30, r20
+ 1ac:	f5 1f       	adc	r31, r21
+}
+ 1ae:	81 81       	ldd	r24, Z+1	; 0x01
+ 1b0:	08 95       	ret
+
+000001b2 <consume_response>:
+
+/**
+ * Consumes and prints answer of ESP
+*/
+void consume_response()
+{
+ 1b2:	0f 93       	push	r16
+ 1b4:	1f 93       	push	r17
+ 1b6:	cf 93       	push	r28
+ 1b8:	df 93       	push	r29
+ 1ba:	cd b7       	in	r28, 0x3d	; 61
+ 1bc:	de b7       	in	r29, 0x3e	; 62
+ 1be:	c8 5c       	subi	r28, 0xC8	; 200
+ 1c0:	d1 09       	sbc	r29, r1
+ 1c2:	0f b6       	in	r0, 0x3f	; 63
+ 1c4:	f8 94       	cli
+ 1c6:	de bf       	out	0x3e, r29	; 62
+ 1c8:	0f be       	out	0x3f, r0	; 63
+ 1ca:	cd bf       	out	0x3d, r28	; 61
+ 1cc:	8e 01       	movw	r16, r28
+ 1ce:	0f 5f       	subi	r16, 0xFF	; 255
+ 1d0:	1f 4f       	sbci	r17, 0xFF	; 255
+	char dataAr[200];
+	int i;
+	
+	i = 0;
+	while((dataAr[i++] = usart_receive()) != '\n');
+ 1d2:	0e 94 3b 04 	call	0x876	; 0x876 <usart_receive>
+ 1d6:	f8 01       	movw	r30, r16
+ 1d8:	81 93       	st	Z+, r24
+ 1da:	8f 01       	movw	r16, r30
+ 1dc:	8a 30       	cpi	r24, 0x0A	; 10
+ 1de:	c9 f7       	brne	.-14     	; 0x1d2 <consume_response+0x20>
+	
+	lcd_string_print((char *) dataAr);
+ 1e0:	ce 01       	movw	r24, r28
+ 1e2:	01 96       	adiw	r24, 0x01	; 1
+ 1e4:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1e8:	ff ef       	ldi	r31, 0xFF	; 255
+ 1ea:	21 ee       	ldi	r18, 0xE1	; 225
+ 1ec:	84 e0       	ldi	r24, 0x04	; 4
+ 1ee:	f1 50       	subi	r31, 0x01	; 1
+ 1f0:	20 40       	sbci	r18, 0x00	; 0
+ 1f2:	80 40       	sbci	r24, 0x00	; 0
+ 1f4:	e1 f7       	brne	.-8      	; 0x1ee <consume_response+0x3c>
+ 1f6:	00 c0       	rjmp	.+0      	; 0x1f8 <consume_response+0x46>
+ 1f8:	00 00       	nop
+	_delay_ms(200);
+	lcd_init();
+ 1fa:	0e 94 88 01 	call	0x310	; 0x310 <lcd_init>
+}
+ 1fe:	c8 53       	subi	r28, 0x38	; 56
+ 200:	df 4f       	sbci	r29, 0xFF	; 255
+ 202:	0f b6       	in	r0, 0x3f	; 63
+ 204:	f8 94       	cli
+ 206:	de bf       	out	0x3e, r29	; 62
+ 208:	0f be       	out	0x3f, r0	; 63
+ 20a:	cd bf       	out	0x3d, r28	; 61
+ 20c:	df 91       	pop	r29
+ 20e:	cf 91       	pop	r28
+ 210:	1f 91       	pop	r17
+ 212:	0f 91       	pop	r16
+ 214:	08 95       	ret
+
+00000216 <consume_response_no_print>:
+{
+	char dataAr[200];
+	int i;
+	
+	i = 0;
+	while((dataAr[i++] = usart_receive()) != '\n');
+ 216:	0e 94 3b 04 	call	0x876	; 0x876 <usart_receive>
+ 21a:	8a 30       	cpi	r24, 0x0A	; 10
+ 21c:	e1 f7       	brne	.-8      	; 0x216 <consume_response_no_print>
+}
+ 21e:	08 95       	ret
+
+00000220 <addSensor>:
+ * Adds sensor and prints message
+ * @param[in] sensorName
+*/
+void addSensor
+(char sensorName[])
+{	
+ 220:	cf 93       	push	r28
+ 222:	df 93       	push	r29
+ 224:	ec 01       	movw	r28, r24
+	lcd_string_print(sensorName);
+ 226:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+	lcd_data_sim(':');
+ 22a:	8a e3       	ldi	r24, 0x3A	; 58
+ 22c:	0e 94 79 01 	call	0x2f2	; 0x2f2 <lcd_data_sim>
+	
+	usart_clear_buffer();
+ 230:	0e 94 4e 04 	call	0x89c	; 0x89c <usart_clear_buffer>
+	addSensorESP(sensorName);
+ 234:	ce 01       	movw	r24, r28
+ 236:	0e 94 49 00 	call	0x92	; 0x92 <addSensorESP>
+	consume_response();
+ 23a:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <consume_response>
+}
+ 23e:	df 91       	pop	r29
+ 240:	cf 91       	pop	r28
+ 242:	08 95       	ret
+
+00000244 <sensorAddValue>:
+ * @param[in] sensorName
+ * @param[in] sensorValue one byte of data
+*/
+void sensorAddValue
+(char sensorName[], char sensorValue)
+{
+ 244:	1f 93       	push	r17
+ 246:	cf 93       	push	r28
+ 248:	df 93       	push	r29
+ 24a:	ec 01       	movw	r28, r24
+ 24c:	16 2f       	mov	r17, r22
+	usart_clear_buffer();
+ 24e:	0e 94 4e 04 	call	0x89c	; 0x89c <usart_clear_buffer>
+	sensorValueESPByte(sensorName, sensorValue);
+ 252:	61 2f       	mov	r22, r17
+ 254:	ce 01       	movw	r24, r28
+ 256:	0e 94 a8 00 	call	0x150	; 0x150 <sensorValueESPByte>
+	consume_response_no_print();
+ 25a:	0e 94 0b 01 	call	0x216	; 0x216 <consume_response_no_print>
+}
+ 25e:	df 91       	pop	r29
+ 260:	cf 91       	pop	r28
+ 262:	1f 91       	pop	r17
+ 264:	08 95       	ret
+
+00000266 <readSensor>:
+ * @param[in] sensorName
+ * @param[out] data one byte of data
+*/
+unsigned char readSensor
+(char sensorName[])
+{
+ 266:	0f 93       	push	r16
+ 268:	1f 93       	push	r17
+ 26a:	cf 93       	push	r28
+ 26c:	df 93       	push	r29
+ 26e:	cd b7       	in	r28, 0x3d	; 61
+ 270:	de b7       	in	r29, 0x3e	; 62
+ 272:	64 97       	sbiw	r28, 0x14	; 20
+ 274:	0f b6       	in	r0, 0x3f	; 63
+ 276:	f8 94       	cli
+ 278:	de bf       	out	0x3e, r29	; 62
+ 27a:	0f be       	out	0x3f, r0	; 63
+ 27c:	cd bf       	out	0x3d, r28	; 61
+ 27e:	8c 01       	movw	r16, r24
+	char dataAr[20];
+	int i;
+	
+	usart_clear_buffer();
+ 280:	0e 94 4e 04 	call	0x89c	; 0x89c <usart_clear_buffer>
+	getValueESP(sensorName);
+ 284:	c8 01       	movw	r24, r16
+ 286:	0e 94 5f 00 	call	0xbe	; 0xbe <getValueESP>
+ 28a:	8e 01       	movw	r16, r28
+ 28c:	0f 5f       	subi	r16, 0xFF	; 255
+ 28e:	1f 4f       	sbci	r17, 0xFF	; 255
+	i = 0;
+	while((dataAr[i++] = usart_receive()) != '\n');
+ 290:	0e 94 3b 04 	call	0x876	; 0x876 <usart_receive>
+ 294:	f8 01       	movw	r30, r16
+ 296:	81 93       	st	Z+, r24
+ 298:	8f 01       	movw	r16, r30
+ 29a:	8a 30       	cpi	r24, 0x0A	; 10
+ 29c:	c9 f7       	brne	.-14     	; 0x290 <readSensor+0x2a>
+	
+	return parsedValue((unsigned char*) dataAr);
+ 29e:	ce 01       	movw	r24, r28
+ 2a0:	01 96       	adiw	r24, 0x01	; 1
+ 2a2:	0e 94 c3 00 	call	0x186	; 0x186 <parsedValue>
+ 2a6:	64 96       	adiw	r28, 0x14	; 20
+ 2a8:	0f b6       	in	r0, 0x3f	; 63
+ 2aa:	f8 94       	cli
+ 2ac:	de bf       	out	0x3e, r29	; 62
+ 2ae:	0f be       	out	0x3f, r0	; 63
+ 2b0:	cd bf       	out	0x3d, r28	; 61
+ 2b2:	df 91       	pop	r29
+ 2b4:	cf 91       	pop	r28
+ 2b6:	1f 91       	pop	r17
+ 2b8:	0f 91       	pop	r16
+ 2ba:	08 95       	ret
+
+000002bc <write_2_nibbles_sim>:
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2bc:	ef ed       	ldi	r30, 0xDF	; 223
+ 2be:	fe e2       	ldi	r31, 0x2E	; 46
+ 2c0:	31 97       	sbiw	r30, 0x01	; 1
+ 2c2:	f1 f7       	brne	.-4      	; 0x2c0 <write_2_nibbles_sim+0x4>
+ 2c4:	00 c0       	rjmp	.+0      	; 0x2c6 <write_2_nibbles_sim+0xa>
+ 2c6:	00 00       	nop
+(unsigned char input)
+{
+	unsigned char lsb, msb;
+	_delay_us(6000);
+	
+	lsb = PIND & 0x0f;
+ 2c8:	90 b3       	in	r25, 0x10	; 16
+ 2ca:	9f 70       	andi	r25, 0x0F	; 15
+	msb = input & 0xf0;
+	PORTD = msb | lsb;
+ 2cc:	28 2f       	mov	r18, r24
+ 2ce:	20 7f       	andi	r18, 0xF0	; 240
+ 2d0:	29 2b       	or	r18, r25
+ 2d2:	22 bb       	out	0x12, r18	; 18
+	PORTD |= _BV(PD3);
+ 2d4:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 2d6:	93 98       	cbi	0x12, 3	; 18
+ 2d8:	ef ed       	ldi	r30, 0xDF	; 223
+ 2da:	fe e2       	ldi	r31, 0x2E	; 46
+ 2dc:	31 97       	sbiw	r30, 0x01	; 1
+ 2de:	f1 f7       	brne	.-4      	; 0x2dc <write_2_nibbles_sim+0x20>
+ 2e0:	00 c0       	rjmp	.+0      	; 0x2e2 <write_2_nibbles_sim+0x26>
+ 2e2:	00 00       	nop
+	
+	_delay_us(6000);
+	
+	msb = (((input & 0x0F) << 4) | ((input & 0xF0) >> 4));
+ 2e4:	82 95       	swap	r24
+	msb = msb & 0xf0;
+	PORTD = msb | lsb;
+ 2e6:	80 7f       	andi	r24, 0xF0	; 240
+ 2e8:	98 2b       	or	r25, r24
+ 2ea:	92 bb       	out	0x12, r25	; 18
+	PORTD |= _BV(PD3);
+ 2ec:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 2ee:	93 98       	cbi	0x12, 3	; 18
+ 2f0:	08 95       	ret
+
+000002f2 <lcd_data_sim>:
+ * @param[in] data data byte to be transmitted
+*/
+void lcd_data_sim
+(unsigned char data)
+{
+	PORTD |= _BV(PD2);
+ 2f2:	92 9a       	sbi	0x12, 2	; 18
+	write_2_nibbles_sim(data);
+ 2f4:	0e 94 5e 01 	call	0x2bc	; 0x2bc <write_2_nibbles_sim>
+ 2f8:	82 e7       	ldi	r24, 0x72	; 114
+ 2fa:	8a 95       	dec	r24
+ 2fc:	f1 f7       	brne	.-4      	; 0x2fa <lcd_data_sim+0x8>
+ 2fe:	00 c0       	rjmp	.+0      	; 0x300 <lcd_data_sim+0xe>
+ 300:	08 95       	ret
+
+00000302 <lcd_command_sim>:
+ * @param[in] comm command byte to be transmitted
+*/
+void lcd_command_sim
+(unsigned char comm)
+{
+	PORTD &= ~(_BV(PD2));
+ 302:	92 98       	cbi	0x12, 2	; 18
+	write_2_nibbles_sim(comm);
+ 304:	0e 94 5e 01 	call	0x2bc	; 0x2bc <write_2_nibbles_sim>
+ 308:	88 e6       	ldi	r24, 0x68	; 104
+ 30a:	8a 95       	dec	r24
+ 30c:	f1 f7       	brne	.-4      	; 0x30a <lcd_command_sim+0x8>
+ 30e:	08 95       	ret
+
+00000310 <lcd_init>:
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 310:	2f ef       	ldi	r18, 0xFF	; 255
+ 312:	89 ef       	ldi	r24, 0xF9	; 249
+ 314:	90 e0       	ldi	r25, 0x00	; 0
+ 316:	21 50       	subi	r18, 0x01	; 1
+ 318:	80 40       	sbci	r24, 0x00	; 0
+ 31a:	90 40       	sbci	r25, 0x00	; 0
+ 31c:	e1 f7       	brne	.-8      	; 0x316 <lcd_init+0x6>
+ 31e:	00 c0       	rjmp	.+0      	; 0x320 <lcd_init+0x10>
+ 320:	00 00       	nop
+ * @param[in] comm command byte to be transmitted
+*/
+void lcd_init()
+{
+	_delay_ms(40);
+	PORTD = 0x30;
+ 322:	80 e3       	ldi	r24, 0x30	; 48
+ 324:	82 bb       	out	0x12, r24	; 18
+	PORTD |= _BV(PD3);
+ 326:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 328:	93 98       	cbi	0x12, 3	; 18
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 32a:	e8 e6       	ldi	r30, 0x68	; 104
+ 32c:	ea 95       	dec	r30
+ 32e:	f1 f7       	brne	.-4      	; 0x32c <lcd_init+0x1c>
+ 330:	ef ec       	ldi	r30, 0xCF	; 207
+ 332:	f7 e0       	ldi	r31, 0x07	; 7
+ 334:	31 97       	sbiw	r30, 0x01	; 1
+ 336:	f1 f7       	brne	.-4      	; 0x334 <lcd_init+0x24>
+ 338:	00 c0       	rjmp	.+0      	; 0x33a <lcd_init+0x2a>
+ 33a:	00 00       	nop
+	_delay_us(39);
+	
+	_delay_us(1000);
+	
+	PORTD = 0x30;
+ 33c:	82 bb       	out	0x12, r24	; 18
+	PORTD |= _BV(PD3);
+ 33e:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 340:	93 98       	cbi	0x12, 3	; 18
+ 342:	f8 e6       	ldi	r31, 0x68	; 104
+ 344:	fa 95       	dec	r31
+ 346:	f1 f7       	brne	.-4      	; 0x344 <lcd_init+0x34>
+ 348:	8f ec       	ldi	r24, 0xCF	; 207
+ 34a:	97 e0       	ldi	r25, 0x07	; 7
+ 34c:	01 97       	sbiw	r24, 0x01	; 1
+ 34e:	f1 f7       	brne	.-4      	; 0x34c <lcd_init+0x3c>
+ 350:	00 c0       	rjmp	.+0      	; 0x352 <lcd_init+0x42>
+ 352:	00 00       	nop
+	_delay_us(39);
+	
+	_delay_us(1000);
+	
+	PORTD = 0x20;
+ 354:	80 e2       	ldi	r24, 0x20	; 32
+ 356:	82 bb       	out	0x12, r24	; 18
+	PORTD |= _BV(PD3);
+ 358:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 35a:	93 98       	cbi	0x12, 3	; 18
+ 35c:	98 e6       	ldi	r25, 0x68	; 104
+ 35e:	9a 95       	dec	r25
+ 360:	f1 f7       	brne	.-4      	; 0x35e <lcd_init+0x4e>
+ 362:	ef ec       	ldi	r30, 0xCF	; 207
+ 364:	f7 e0       	ldi	r31, 0x07	; 7
+ 366:	31 97       	sbiw	r30, 0x01	; 1
+ 368:	f1 f7       	brne	.-4      	; 0x366 <lcd_init+0x56>
+ 36a:	00 c0       	rjmp	.+0      	; 0x36c <lcd_init+0x5c>
+ 36c:	00 00       	nop
+	_delay_us(39);
+	
+	_delay_us(1000);
+	
+	lcd_command_sim(0x28);
+ 36e:	88 e2       	ldi	r24, 0x28	; 40
+ 370:	0e 94 81 01 	call	0x302	; 0x302 <lcd_command_sim>
+	lcd_command_sim(0x0c);
+ 374:	8c e0       	ldi	r24, 0x0C	; 12
+ 376:	0e 94 81 01 	call	0x302	; 0x302 <lcd_command_sim>
+	lcd_command_sim(0x01);
+ 37a:	81 e0       	ldi	r24, 0x01	; 1
+ 37c:	0e 94 81 01 	call	0x302	; 0x302 <lcd_command_sim>
+ 380:	83 ef       	ldi	r24, 0xF3	; 243
+ 382:	9b e0       	ldi	r25, 0x0B	; 11
+ 384:	01 97       	sbiw	r24, 0x01	; 1
+ 386:	f1 f7       	brne	.-4      	; 0x384 <lcd_init+0x74>
+ 388:	00 c0       	rjmp	.+0      	; 0x38a <lcd_init+0x7a>
+ 38a:	00 00       	nop
+	_delay_us(1530);
+	lcd_command_sim(0x06);
+ 38c:	86 e0       	ldi	r24, 0x06	; 6
+ 38e:	0e 94 81 01 	call	0x302	; 0x302 <lcd_command_sim>
+ 392:	08 95       	ret
+
+00000394 <lcd_string_print>:
+ * Prints string in LCD display
+ * @param[in] string char buffer to be printed
+ * @param[in] limit number of chars to be printed
+*/
+void lcd_string_print(char stringAr[])
+{
+ 394:	cf 93       	push	r28
+ 396:	df 93       	push	r29
+ 398:	ec 01       	movw	r28, r24
+	int j = 0;
+	while (stringAr[j] != '\0' && stringAr[j] != '\n')
+ 39a:	88 81       	ld	r24, Y
+ 39c:	88 23       	and	r24, r24
+ 39e:	51 f0       	breq	.+20     	; 0x3b4 <lcd_string_print+0x20>
+ 3a0:	8a 30       	cpi	r24, 0x0A	; 10
+ 3a2:	41 f0       	breq	.+16     	; 0x3b4 <lcd_string_print+0x20>
+ 3a4:	21 96       	adiw	r28, 0x01	; 1
+	{
+		lcd_data_sim((unsigned char) stringAr[j]);
+ 3a6:	0e 94 79 01 	call	0x2f2	; 0x2f2 <lcd_data_sim>
+ * @param[in] limit number of chars to be printed
+*/
+void lcd_string_print(char stringAr[])
+{
+	int j = 0;
+	while (stringAr[j] != '\0' && stringAr[j] != '\n')
+ 3aa:	89 91       	ld	r24, Y+
+ 3ac:	88 23       	and	r24, r24
+ 3ae:	11 f0       	breq	.+4      	; 0x3b4 <lcd_string_print+0x20>
+ 3b0:	8a 30       	cpi	r24, 0x0A	; 10
+ 3b2:	c9 f7       	brne	.-14     	; 0x3a6 <lcd_string_print+0x12>
+	{
+		lcd_data_sim((unsigned char) stringAr[j]);
+		j++;
+	}
+ 3b4:	df 91       	pop	r29
+ 3b6:	cf 91       	pop	r28
+ 3b8:	08 95       	ret
+
+000003ba <__vector_11>:
+unsigned char ticket0, ticket1, ticket2, ticket3;
+unsigned char parking0, parking1, parking2, parking3;
+int nodeIndex, refreshLCD, changedBleacher, clientTransmitted;
+
+ISR(USART_RXC_vect)
+{
+ 3ba:	1f 92       	push	r1
+ 3bc:	0f 92       	push	r0
+ 3be:	0f b6       	in	r0, 0x3f	; 63
+ 3c0:	0f 92       	push	r0
+ 3c2:	11 24       	eor	r1, r1
+ 3c4:	8f 93       	push	r24
+ 3c6:	9f 93       	push	r25
+	if (UDR == '\n') clientTransmitted = 1;
+ 3c8:	8c b1       	in	r24, 0x0c	; 12
+ 3ca:	8a 30       	cpi	r24, 0x0A	; 10
+ 3cc:	31 f4       	brne	.+12     	; 0x3da <__vector_11+0x20>
+ 3ce:	81 e0       	ldi	r24, 0x01	; 1
+ 3d0:	90 e0       	ldi	r25, 0x00	; 0
+ 3d2:	90 93 db 01 	sts	0x01DB, r25	; 0x8001db <clientTransmitted+0x1>
+ 3d6:	80 93 da 01 	sts	0x01DA, r24	; 0x8001da <clientTransmitted>
+	
+}
+ 3da:	9f 91       	pop	r25
+ 3dc:	8f 91       	pop	r24
+ 3de:	0f 90       	pop	r0
+ 3e0:	0f be       	out	0x3f, r0	; 63
+ 3e2:	0f 90       	pop	r0
+ 3e4:	1f 90       	pop	r1
+ 3e6:	18 95       	reti
+
+000003e8 <gateway_init>:
+
+void gateway_init
+(char ssid[], char passw[], char hostIP[])
+{
+ 3e8:	ef 92       	push	r14
+ 3ea:	ff 92       	push	r15
+ 3ec:	0f 93       	push	r16
+ 3ee:	1f 93       	push	r17
+ 3f0:	cf 93       	push	r28
+ 3f2:	df 93       	push	r29
+ 3f4:	7c 01       	movw	r14, r24
+ 3f6:	8b 01       	movw	r16, r22
+ 3f8:	ea 01       	movw	r28, r20
+	/* Welcome message */
+	lcd_init();
+ 3fa:	0e 94 88 01 	call	0x310	; 0x310 <lcd_init>
+	lcd_string_print("Gateway:");
+ 3fe:	8e e3       	ldi	r24, 0x3E	; 62
+ 400:	91 e0       	ldi	r25, 0x01	; 1
+ 402:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+	
+	usart_init(0x00, (1<<RXEN) | (1<<TXEN) | (1<<RXCIE), (1 << URSEL) | (3 << UCSZ0), 0x33);
+ 406:	23 e3       	ldi	r18, 0x33	; 51
+ 408:	30 e0       	ldi	r19, 0x00	; 0
+ 40a:	46 e8       	ldi	r20, 0x86	; 134
+ 40c:	68 e9       	ldi	r22, 0x98	; 152
+ 40e:	80 e0       	ldi	r24, 0x00	; 0
+ 410:	0e 94 24 04 	call	0x848	; 0x848 <usart_init>
+
+	/* Set ESP server */
+	usart_transmit('\n');
+ 414:	8a e0       	ldi	r24, 0x0A	; 10
+ 416:	0e 94 37 04 	call	0x86e	; 0x86e <usart_transmit>
+	restartESP();
+ 41a:	0e 94 92 00 	call	0x124	; 0x124 <restartESP>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 41e:	2f ef       	ldi	r18, 0xFF	; 255
+ 420:	84 e3       	ldi	r24, 0x34	; 52
+ 422:	9c e0       	ldi	r25, 0x0C	; 12
+ 424:	21 50       	subi	r18, 0x01	; 1
+ 426:	80 40       	sbci	r24, 0x00	; 0
+ 428:	90 40       	sbci	r25, 0x00	; 0
+ 42a:	e1 f7       	brne	.-8      	; 0x424 <__LOCK_REGION_LENGTH__+0x24>
+ 42c:	00 c0       	rjmp	.+0      	; 0x42e <__LOCK_REGION_LENGTH__+0x2e>
+ 42e:	00 00       	nop
+	_delay_ms(500);
+	usart_clear_buffer();
+ 430:	0e 94 4e 04 	call	0x89c	; 0x89c <usart_clear_buffer>
+	ssidESP(ssid);
+ 434:	c7 01       	movw	r24, r14
+ 436:	0e 94 97 00 	call	0x12e	; 0x12e <ssidESP>
+	consume_response_no_print();
+ 43a:	0e 94 0b 01 	call	0x216	; 0x216 <consume_response_no_print>
+	passwESP(passw);
+ 43e:	c8 01       	movw	r24, r16
+ 440:	0e 94 81 00 	call	0x102	; 0x102 <passwESP>
+	consume_response_no_print();
+ 444:	0e 94 0b 01 	call	0x216	; 0x216 <consume_response_no_print>
+	hostESP(hostIP);
+ 448:	ce 01       	movw	r24, r28
+ 44a:	0e 94 70 00 	call	0xe0	; 0xe0 <hostESP>
+	consume_response_no_print();
+ 44e:	0e 94 0b 01 	call	0x216	; 0x216 <consume_response_no_print>
+	
+	/* Start AP */
+	apStartESP();
+ 452:	0e 94 5a 00 	call	0xb4	; 0xb4 <apStartESP>
+	consume_response();
+ 456:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <consume_response>
+}
+ 45a:	df 91       	pop	r29
+ 45c:	cf 91       	pop	r28
+ 45e:	1f 91       	pop	r17
+ 460:	0f 91       	pop	r16
+ 462:	ff 90       	pop	r15
+ 464:	ef 90       	pop	r14
+ 466:	08 95       	ret
+
+00000468 <checkButtons>:
+
+void checkButtons()
+{
+	unsigned char input = PINC;
+ 468:	83 b3       	in	r24, 0x13	; 19
+	
+	if (((input & 0x01) == 0x01) && nodeIndex != 0)	{ nodeIndex = 0; changedBleacher = 1; }
+ 46a:	80 ff       	sbrs	r24, 0
+ 46c:	12 c0       	rjmp	.+36     	; 0x492 <checkButtons+0x2a>
+ 46e:	20 91 d7 01 	lds	r18, 0x01D7	; 0x8001d7 <nodeIndex>
+ 472:	30 91 d8 01 	lds	r19, 0x01D8	; 0x8001d8 <nodeIndex+0x1>
+ 476:	23 2b       	or	r18, r19
+ 478:	09 f4       	brne	.+2      	; 0x47c <checkButtons+0x14>
+ 47a:	4a c0       	rjmp	.+148    	; 0x510 <checkButtons+0xa8>
+ 47c:	10 92 d8 01 	sts	0x01D8, r1	; 0x8001d8 <nodeIndex+0x1>
+ 480:	10 92 d7 01 	sts	0x01D7, r1	; 0x8001d7 <nodeIndex>
+ 484:	21 e0       	ldi	r18, 0x01	; 1
+ 486:	30 e0       	ldi	r19, 0x00	; 0
+ 488:	30 93 d2 01 	sts	0x01D2, r19	; 0x8001d2 <changedBleacher+0x1>
+ 48c:	20 93 d1 01 	sts	0x01D1, r18	; 0x8001d1 <changedBleacher>
+ 490:	3f c0       	rjmp	.+126    	; 0x510 <checkButtons+0xa8>
+	if (((input & 0x02) == 0x02) && nodeIndex != 1) { nodeIndex = 1; changedBleacher = 1; }
+ 492:	81 ff       	sbrs	r24, 1
+ 494:	12 c0       	rjmp	.+36     	; 0x4ba <checkButtons+0x52>
+ 496:	20 91 d7 01 	lds	r18, 0x01D7	; 0x8001d7 <nodeIndex>
+ 49a:	30 91 d8 01 	lds	r19, 0x01D8	; 0x8001d8 <nodeIndex+0x1>
+ 49e:	21 30       	cpi	r18, 0x01	; 1
+ 4a0:	31 05       	cpc	r19, r1
+ 4a2:	c9 f1       	breq	.+114    	; 0x516 <checkButtons+0xae>
+ 4a4:	21 e0       	ldi	r18, 0x01	; 1
+ 4a6:	30 e0       	ldi	r19, 0x00	; 0
+ 4a8:	30 93 d8 01 	sts	0x01D8, r19	; 0x8001d8 <nodeIndex+0x1>
+ 4ac:	20 93 d7 01 	sts	0x01D7, r18	; 0x8001d7 <nodeIndex>
+ 4b0:	30 93 d2 01 	sts	0x01D2, r19	; 0x8001d2 <changedBleacher+0x1>
+ 4b4:	20 93 d1 01 	sts	0x01D1, r18	; 0x8001d1 <changedBleacher>
+ 4b8:	2e c0       	rjmp	.+92     	; 0x516 <checkButtons+0xae>
+	if (((input & 0x04) == 0x04) && nodeIndex != 2) { nodeIndex = 2; changedBleacher = 1; }
+ 4ba:	82 ff       	sbrs	r24, 2
+ 4bc:	14 c0       	rjmp	.+40     	; 0x4e6 <checkButtons+0x7e>
+ 4be:	20 91 d7 01 	lds	r18, 0x01D7	; 0x8001d7 <nodeIndex>
+ 4c2:	30 91 d8 01 	lds	r19, 0x01D8	; 0x8001d8 <nodeIndex+0x1>
+ 4c6:	22 30       	cpi	r18, 0x02	; 2
+ 4c8:	31 05       	cpc	r19, r1
+ 4ca:	41 f1       	breq	.+80     	; 0x51c <checkButtons+0xb4>
+ 4cc:	22 e0       	ldi	r18, 0x02	; 2
+ 4ce:	30 e0       	ldi	r19, 0x00	; 0
+ 4d0:	30 93 d8 01 	sts	0x01D8, r19	; 0x8001d8 <nodeIndex+0x1>
+ 4d4:	20 93 d7 01 	sts	0x01D7, r18	; 0x8001d7 <nodeIndex>
+ 4d8:	21 e0       	ldi	r18, 0x01	; 1
+ 4da:	30 e0       	ldi	r19, 0x00	; 0
+ 4dc:	30 93 d2 01 	sts	0x01D2, r19	; 0x8001d2 <changedBleacher+0x1>
+ 4e0:	20 93 d1 01 	sts	0x01D1, r18	; 0x8001d1 <changedBleacher>
+ 4e4:	1b c0       	rjmp	.+54     	; 0x51c <checkButtons+0xb4>
+	if (((input & 0x08) == 0x08) && nodeIndex != 3) { nodeIndex = 3; changedBleacher = 1; }
+ 4e6:	83 ff       	sbrs	r24, 3
+ 4e8:	1b c0       	rjmp	.+54     	; 0x520 <checkButtons+0xb8>
+ 4ea:	80 91 d7 01 	lds	r24, 0x01D7	; 0x8001d7 <nodeIndex>
+ 4ee:	90 91 d8 01 	lds	r25, 0x01D8	; 0x8001d8 <nodeIndex+0x1>
+ 4f2:	03 97       	sbiw	r24, 0x03	; 3
+ 4f4:	a9 f0       	breq	.+42     	; 0x520 <checkButtons+0xb8>
+ 4f6:	83 e0       	ldi	r24, 0x03	; 3
+ 4f8:	90 e0       	ldi	r25, 0x00	; 0
+ 4fa:	90 93 d8 01 	sts	0x01D8, r25	; 0x8001d8 <nodeIndex+0x1>
+ 4fe:	80 93 d7 01 	sts	0x01D7, r24	; 0x8001d7 <nodeIndex>
+ 502:	81 e0       	ldi	r24, 0x01	; 1
+ 504:	90 e0       	ldi	r25, 0x00	; 0
+ 506:	90 93 d2 01 	sts	0x01D2, r25	; 0x8001d2 <changedBleacher+0x1>
+ 50a:	80 93 d1 01 	sts	0x01D1, r24	; 0x8001d1 <changedBleacher>
+}
+ 50e:	08 95       	ret
+void checkButtons()
+{
+	unsigned char input = PINC;
+	
+	if (((input & 0x01) == 0x01) && nodeIndex != 0)	{ nodeIndex = 0; changedBleacher = 1; }
+	if (((input & 0x02) == 0x02) && nodeIndex != 1) { nodeIndex = 1; changedBleacher = 1; }
+ 510:	81 fd       	sbrc	r24, 1
+ 512:	c8 cf       	rjmp	.-112    	; 0x4a4 <checkButtons+0x3c>
+ 514:	d2 cf       	rjmp	.-92     	; 0x4ba <checkButtons+0x52>
+	if (((input & 0x04) == 0x04) && nodeIndex != 2) { nodeIndex = 2; changedBleacher = 1; }
+ 516:	82 fd       	sbrc	r24, 2
+ 518:	d9 cf       	rjmp	.-78     	; 0x4cc <checkButtons+0x64>
+ 51a:	e5 cf       	rjmp	.-54     	; 0x4e6 <checkButtons+0x7e>
+	if (((input & 0x08) == 0x08) && nodeIndex != 3) { nodeIndex = 3; changedBleacher = 1; }
+ 51c:	83 fd       	sbrc	r24, 3
+ 51e:	eb cf       	rjmp	.-42     	; 0x4f6 <checkButtons+0x8e>
+ 520:	08 95       	ret
+
+00000522 <updateParking>:
+}
+
+void updateParking
+(char sensorName[], int index)
+{
+ 522:	cf 93       	push	r28
+ 524:	df 93       	push	r29
+ 526:	eb 01       	movw	r28, r22
+	unsigned char parkingTmp;
+	
+	parkingTmp = readSensor(sensorName);
+ 528:	0e 94 33 01 	call	0x266	; 0x266 <readSensor>
+	
+	switch(index)
+ 52c:	c1 30       	cpi	r28, 0x01	; 1
+ 52e:	d1 05       	cpc	r29, r1
+ 530:	b9 f0       	breq	.+46     	; 0x560 <updateParking+0x3e>
+ 532:	1c f4       	brge	.+6      	; 0x53a <updateParking+0x18>
+ 534:	cd 2b       	or	r28, r29
+ 536:	39 f0       	breq	.+14     	; 0x546 <updateParking+0x24>
+ 538:	39 c0       	rjmp	.+114    	; 0x5ac <updateParking+0x8a>
+ 53a:	c2 30       	cpi	r28, 0x02	; 2
+ 53c:	d1 05       	cpc	r29, r1
+ 53e:	e9 f0       	breq	.+58     	; 0x57a <updateParking+0x58>
+ 540:	23 97       	sbiw	r28, 0x03	; 3
+ 542:	41 f1       	breq	.+80     	; 0x594 <updateParking+0x72>
+ 544:	33 c0       	rjmp	.+102    	; 0x5ac <updateParking+0x8a>
+	{
+		case 0:
+		if (parkingTmp != parking0) {
+ 546:	90 91 cc 01 	lds	r25, 0x01CC	; 0x8001cc <__data_end>
+ 54a:	89 17       	cp	r24, r25
+ 54c:	79 f1       	breq	.+94     	; 0x5ac <updateParking+0x8a>
+			parking0 = parkingTmp;
+ 54e:	80 93 cc 01 	sts	0x01CC, r24	; 0x8001cc <__data_end>
+			refreshLCD = 1;
+ 552:	81 e0       	ldi	r24, 0x01	; 1
+ 554:	90 e0       	ldi	r25, 0x00	; 0
+ 556:	90 93 d0 01 	sts	0x01D0, r25	; 0x8001d0 <refreshLCD+0x1>
+ 55a:	80 93 cf 01 	sts	0x01CF, r24	; 0x8001cf <refreshLCD>
+ 55e:	26 c0       	rjmp	.+76     	; 0x5ac <updateParking+0x8a>
+		}
+		break;
+		
+		case 1:
+		if (parkingTmp != parking1) {
+ 560:	90 91 d4 01 	lds	r25, 0x01D4	; 0x8001d4 <parking1>
+ 564:	89 17       	cp	r24, r25
+ 566:	11 f1       	breq	.+68     	; 0x5ac <updateParking+0x8a>
+			parking1 = parkingTmp;
+ 568:	80 93 d4 01 	sts	0x01D4, r24	; 0x8001d4 <parking1>
+			refreshLCD = 1;
+ 56c:	81 e0       	ldi	r24, 0x01	; 1
+ 56e:	90 e0       	ldi	r25, 0x00	; 0
+ 570:	90 93 d0 01 	sts	0x01D0, r25	; 0x8001d0 <refreshLCD+0x1>
+ 574:	80 93 cf 01 	sts	0x01CF, r24	; 0x8001cf <refreshLCD>
+ 578:	19 c0       	rjmp	.+50     	; 0x5ac <updateParking+0x8a>
+		}
+		break;
+		
+		case 2:
+		if (parkingTmp != parking2) {
+ 57a:	90 91 d9 01 	lds	r25, 0x01D9	; 0x8001d9 <parking2>
+ 57e:	89 17       	cp	r24, r25
+ 580:	a9 f0       	breq	.+42     	; 0x5ac <updateParking+0x8a>
+			parking2 = parkingTmp;
+ 582:	80 93 d9 01 	sts	0x01D9, r24	; 0x8001d9 <parking2>
+			refreshLCD = 1;
+ 586:	81 e0       	ldi	r24, 0x01	; 1
+ 588:	90 e0       	ldi	r25, 0x00	; 0
+ 58a:	90 93 d0 01 	sts	0x01D0, r25	; 0x8001d0 <refreshLCD+0x1>
+ 58e:	80 93 cf 01 	sts	0x01CF, r24	; 0x8001cf <refreshLCD>
+ 592:	0c c0       	rjmp	.+24     	; 0x5ac <updateParking+0x8a>
+		}
+		break;
+		
+		case 3:
+		if (parkingTmp != parking3) {
+ 594:	90 91 ce 01 	lds	r25, 0x01CE	; 0x8001ce <parking3>
+ 598:	89 17       	cp	r24, r25
+ 59a:	41 f0       	breq	.+16     	; 0x5ac <updateParking+0x8a>
+			parking3 = parkingTmp;
+ 59c:	80 93 ce 01 	sts	0x01CE, r24	; 0x8001ce <parking3>
+			refreshLCD = 1;
+ 5a0:	81 e0       	ldi	r24, 0x01	; 1
+ 5a2:	90 e0       	ldi	r25, 0x00	; 0
+ 5a4:	90 93 d0 01 	sts	0x01D0, r25	; 0x8001d0 <refreshLCD+0x1>
+ 5a8:	80 93 cf 01 	sts	0x01CF, r24	; 0x8001cf <refreshLCD>
+		}
+		break;
+	}
+}
+ 5ac:	df 91       	pop	r29
+ 5ae:	cf 91       	pop	r28
+ 5b0:	08 95       	ret
+
+000005b2 <printParkingStatus>:
+
+void printParkingStatus
+(unsigned char parking)
+{	
+ 5b2:	cf 93       	push	r28
+ 5b4:	c8 2f       	mov	r28, r24
+	if (parking > 0x40) lcd_data_sim('#');
+ 5b6:	81 34       	cpi	r24, 0x41	; 65
+ 5b8:	30 f0       	brcs	.+12     	; 0x5c6 <printParkingStatus+0x14>
+ 5ba:	83 e2       	ldi	r24, 0x23	; 35
+ 5bc:	0e 94 79 01 	call	0x2f2	; 0x2f2 <lcd_data_sim>
+	else {lcd_string_print("        "); return;}
+	if (parking > 0x80) lcd_data_sim('#');
+ 5c0:	c1 38       	cpi	r28, 0x81	; 129
+ 5c2:	30 f4       	brcc	.+12     	; 0x5d0 <printParkingStatus+0x1e>
+ 5c4:	0b c0       	rjmp	.+22     	; 0x5dc <printParkingStatus+0x2a>
+
+void printParkingStatus
+(unsigned char parking)
+{	
+	if (parking > 0x40) lcd_data_sim('#');
+	else {lcd_string_print("        "); return;}
+ 5c6:	87 e4       	ldi	r24, 0x47	; 71
+ 5c8:	91 e0       	ldi	r25, 0x01	; 1
+ 5ca:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+ 5ce:	1e c0       	rjmp	.+60     	; 0x60c <printParkingStatus+0x5a>
+	if (parking > 0x80) lcd_data_sim('#');
+ 5d0:	83 e2       	ldi	r24, 0x23	; 35
+ 5d2:	0e 94 79 01 	call	0x2f2	; 0x2f2 <lcd_data_sim>
+	else {lcd_string_print("      "); return;}
+	if (parking > 0xC0) lcd_data_sim('#');
+ 5d6:	c1 3c       	cpi	r28, 0xC1	; 193
+ 5d8:	30 f4       	brcc	.+12     	; 0x5e6 <printParkingStatus+0x34>
+ 5da:	0b c0       	rjmp	.+22     	; 0x5f2 <printParkingStatus+0x40>
+(unsigned char parking)
+{	
+	if (parking > 0x40) lcd_data_sim('#');
+	else {lcd_string_print("        "); return;}
+	if (parking > 0x80) lcd_data_sim('#');
+	else {lcd_string_print("      "); return;}
+ 5dc:	89 e4       	ldi	r24, 0x49	; 73
+ 5de:	91 e0       	ldi	r25, 0x01	; 1
+ 5e0:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+ 5e4:	13 c0       	rjmp	.+38     	; 0x60c <printParkingStatus+0x5a>
+	if (parking > 0xC0) lcd_data_sim('#');
+ 5e6:	83 e2       	ldi	r24, 0x23	; 35
+ 5e8:	0e 94 79 01 	call	0x2f2	; 0x2f2 <lcd_data_sim>
+	else {lcd_string_print("    "); return;}
+	if (parking >= 0xF9) lcd_data_sim('#');
+ 5ec:	c9 3f       	cpi	r28, 0xF9	; 249
+ 5ee:	50 f0       	brcs	.+20     	; 0x604 <printParkingStatus+0x52>
+ 5f0:	05 c0       	rjmp	.+10     	; 0x5fc <printParkingStatus+0x4a>
+	if (parking > 0x40) lcd_data_sim('#');
+	else {lcd_string_print("        "); return;}
+	if (parking > 0x80) lcd_data_sim('#');
+	else {lcd_string_print("      "); return;}
+	if (parking > 0xC0) lcd_data_sim('#');
+	else {lcd_string_print("    "); return;}
+ 5f2:	8b e4       	ldi	r24, 0x4B	; 75
+ 5f4:	91 e0       	ldi	r25, 0x01	; 1
+ 5f6:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+ 5fa:	08 c0       	rjmp	.+16     	; 0x60c <printParkingStatus+0x5a>
+	if (parking >= 0xF9) lcd_data_sim('#');
+ 5fc:	83 e2       	ldi	r24, 0x23	; 35
+ 5fe:	0e 94 79 01 	call	0x2f2	; 0x2f2 <lcd_data_sim>
+ 602:	04 c0       	rjmp	.+8      	; 0x60c <printParkingStatus+0x5a>
+	else {lcd_string_print("  ");return;}
+ 604:	8d e4       	ldi	r24, 0x4D	; 77
+ 606:	91 e0       	ldi	r25, 0x01	; 1
+ 608:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+}
+ 60c:	cf 91       	pop	r28
+ 60e:	08 95       	ret
+
+00000610 <updateParkingLCD>:
+
+void updateParkingLCD() 
+{
+	lcd_init();
+ 610:	0e 94 88 01 	call	0x310	; 0x310 <lcd_init>
+	lcd_string_print("P1:");
+ 614:	80 e5       	ldi	r24, 0x50	; 80
+ 616:	91 e0       	ldi	r25, 0x01	; 1
+ 618:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+	printParkingStatus(parking0);
+ 61c:	80 91 cc 01 	lds	r24, 0x01CC	; 0x8001cc <__data_end>
+ 620:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <printParkingStatus>
+	lcd_string_print("|P2:");
+ 624:	84 e5       	ldi	r24, 0x54	; 84
+ 626:	91 e0       	ldi	r25, 0x01	; 1
+ 628:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+	printParkingStatus(parking1);
+ 62c:	80 91 d4 01 	lds	r24, 0x01D4	; 0x8001d4 <parking1>
+ 630:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <printParkingStatus>
+	lcd_data_sim('\n');
+ 634:	8a e0       	ldi	r24, 0x0A	; 10
+ 636:	0e 94 79 01 	call	0x2f2	; 0x2f2 <lcd_data_sim>
+	lcd_string_print("P3:");
+ 63a:	89 e5       	ldi	r24, 0x59	; 89
+ 63c:	91 e0       	ldi	r25, 0x01	; 1
+ 63e:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+	printParkingStatus(parking2);
+ 642:	80 91 d9 01 	lds	r24, 0x01D9	; 0x8001d9 <parking2>
+ 646:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <printParkingStatus>
+	lcd_string_print("|P4:");
+ 64a:	8d e5       	ldi	r24, 0x5D	; 93
+ 64c:	91 e0       	ldi	r25, 0x01	; 1
+ 64e:	0e 94 ca 01 	call	0x394	; 0x394 <lcd_string_print>
+	printParkingStatus(parking3);
+ 652:	80 91 ce 01 	lds	r24, 0x01CE	; 0x8001ce <parking3>
+ 656:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <printParkingStatus>
+ 65a:	08 95       	ret
+
+0000065c <main>:
+}
+
+int main(void)
+{
+	/* Initialize variables */
+	nodeIndex = clientTransmitted = 0;
+ 65c:	10 92 db 01 	sts	0x01DB, r1	; 0x8001db <clientTransmitted+0x1>
+ 660:	10 92 da 01 	sts	0x01DA, r1	; 0x8001da <clientTransmitted>
+ 664:	10 92 d8 01 	sts	0x01D8, r1	; 0x8001d8 <nodeIndex+0x1>
+ 668:	10 92 d7 01 	sts	0x01D7, r1	; 0x8001d7 <nodeIndex>
+	refreshLCD = changedBleacher = 1;
+ 66c:	81 e0       	ldi	r24, 0x01	; 1
+ 66e:	90 e0       	ldi	r25, 0x00	; 0
+ 670:	90 93 d2 01 	sts	0x01D2, r25	; 0x8001d2 <changedBleacher+0x1>
+ 674:	80 93 d1 01 	sts	0x01D1, r24	; 0x8001d1 <changedBleacher>
+ 678:	90 93 d0 01 	sts	0x01D0, r25	; 0x8001d0 <refreshLCD+0x1>
+ 67c:	80 93 cf 01 	sts	0x01CF, r24	; 0x8001cf <refreshLCD>
+	
+	/* Initialize ports */
+	DDRC = 0XC0;
+ 680:	80 ec       	ldi	r24, 0xC0	; 192
+ 682:	84 bb       	out	0x14, r24	; 20
+	DDRB = 0xFF;
+ 684:	8f ef       	ldi	r24, 0xFF	; 255
+ 686:	87 bb       	out	0x17, r24	; 23
+	DDRD = 0xFF;
+ 688:	81 bb       	out	0x11, r24	; 17
+	
+	/* Initialize gateway */
+	gateway_init("kpSSID123456", "kpTest123456", "192.168.4.1");
+ 68a:	42 e6       	ldi	r20, 0x62	; 98
+ 68c:	51 e0       	ldi	r21, 0x01	; 1
+ 68e:	6e e6       	ldi	r22, 0x6E	; 110
+ 690:	71 e0       	ldi	r23, 0x01	; 1
+ 692:	8b e7       	ldi	r24, 0x7B	; 123
+ 694:	91 e0       	ldi	r25, 0x01	; 1
+ 696:	0e 94 f4 01 	call	0x3e8	; 0x3e8 <gateway_init>
+	addSensor("Ticket0"); sensorAddValue("Ticket0", 0xFF);
+ 69a:	88 e8       	ldi	r24, 0x88	; 136
+ 69c:	91 e0       	ldi	r25, 0x01	; 1
+ 69e:	0e 94 10 01 	call	0x220	; 0x220 <addSensor>
+ 6a2:	6f ef       	ldi	r22, 0xFF	; 255
+ 6a4:	88 e8       	ldi	r24, 0x88	; 136
+ 6a6:	91 e0       	ldi	r25, 0x01	; 1
+ 6a8:	0e 94 22 01 	call	0x244	; 0x244 <sensorAddValue>
+	addSensor("Ticket1"); sensorAddValue("Ticket1", 0xFF);
+ 6ac:	80 e9       	ldi	r24, 0x90	; 144
+ 6ae:	91 e0       	ldi	r25, 0x01	; 1
+ 6b0:	0e 94 10 01 	call	0x220	; 0x220 <addSensor>
+ 6b4:	6f ef       	ldi	r22, 0xFF	; 255
+ 6b6:	80 e9       	ldi	r24, 0x90	; 144
+ 6b8:	91 e0       	ldi	r25, 0x01	; 1
+ 6ba:	0e 94 22 01 	call	0x244	; 0x244 <sensorAddValue>
+	addSensor("Ticket2"); sensorAddValue("Ticket2", 0xFF);
+ 6be:	88 e9       	ldi	r24, 0x98	; 152
+ 6c0:	91 e0       	ldi	r25, 0x01	; 1
+ 6c2:	0e 94 10 01 	call	0x220	; 0x220 <addSensor>
+ 6c6:	6f ef       	ldi	r22, 0xFF	; 255
+ 6c8:	88 e9       	ldi	r24, 0x98	; 152
+ 6ca:	91 e0       	ldi	r25, 0x01	; 1
+ 6cc:	0e 94 22 01 	call	0x244	; 0x244 <sensorAddValue>
+	addSensor("Ticket3"); sensorAddValue("Ticket3", 0xFF);
+ 6d0:	80 ea       	ldi	r24, 0xA0	; 160
+ 6d2:	91 e0       	ldi	r25, 0x01	; 1
+ 6d4:	0e 94 10 01 	call	0x220	; 0x220 <addSensor>
+ 6d8:	6f ef       	ldi	r22, 0xFF	; 255
+ 6da:	80 ea       	ldi	r24, 0xA0	; 160
+ 6dc:	91 e0       	ldi	r25, 0x01	; 1
+ 6de:	0e 94 22 01 	call	0x244	; 0x244 <sensorAddValue>
+	addSensor("Parking0"); sensorAddValue("Parking0", 0x01);
+ 6e2:	88 ea       	ldi	r24, 0xA8	; 168
+ 6e4:	91 e0       	ldi	r25, 0x01	; 1
+ 6e6:	0e 94 10 01 	call	0x220	; 0x220 <addSensor>
+ 6ea:	61 e0       	ldi	r22, 0x01	; 1
+ 6ec:	88 ea       	ldi	r24, 0xA8	; 168
+ 6ee:	91 e0       	ldi	r25, 0x01	; 1
+ 6f0:	0e 94 22 01 	call	0x244	; 0x244 <sensorAddValue>
+	addSensor("Parking1"); sensorAddValue("Parking1", 0x01);
+ 6f4:	81 eb       	ldi	r24, 0xB1	; 177
+ 6f6:	91 e0       	ldi	r25, 0x01	; 1
+ 6f8:	0e 94 10 01 	call	0x220	; 0x220 <addSensor>
+ 6fc:	61 e0       	ldi	r22, 0x01	; 1
+ 6fe:	81 eb       	ldi	r24, 0xB1	; 177
+ 700:	91 e0       	ldi	r25, 0x01	; 1
+ 702:	0e 94 22 01 	call	0x244	; 0x244 <sensorAddValue>
+	addSensor("Parking2"); sensorAddValue("Parking2", 0x01);
+ 706:	8a eb       	ldi	r24, 0xBA	; 186
+ 708:	91 e0       	ldi	r25, 0x01	; 1
+ 70a:	0e 94 10 01 	call	0x220	; 0x220 <addSensor>
+ 70e:	61 e0       	ldi	r22, 0x01	; 1
+ 710:	8a eb       	ldi	r24, 0xBA	; 186
+ 712:	91 e0       	ldi	r25, 0x01	; 1
+ 714:	0e 94 22 01 	call	0x244	; 0x244 <sensorAddValue>
+	addSensor("Parking3"); sensorAddValue("Parking3", 0x01);
+ 718:	83 ec       	ldi	r24, 0xC3	; 195
+ 71a:	91 e0       	ldi	r25, 0x01	; 1
+ 71c:	0e 94 10 01 	call	0x220	; 0x220 <addSensor>
+ 720:	61 e0       	ldi	r22, 0x01	; 1
+ 722:	83 ec       	ldi	r24, 0xC3	; 195
+ 724:	91 e0       	ldi	r25, 0x01	; 1
+ 726:	0e 94 22 01 	call	0x244	; 0x244 <sensorAddValue>
+
+	while (1) 
+    {	
+		sei();
+ 72a:	78 94       	sei
+		
+		while (changedBleacher == 0 && clientTransmitted == 0)
+ 72c:	80 91 d1 01 	lds	r24, 0x01D1	; 0x8001d1 <changedBleacher>
+ 730:	90 91 d2 01 	lds	r25, 0x01D2	; 0x8001d2 <changedBleacher+0x1>
+ 734:	00 97       	sbiw	r24, 0x00	; 0
+ 736:	a9 f4       	brne	.+42     	; 0x762 <main+0x106>
+ 738:	80 91 da 01 	lds	r24, 0x01DA	; 0x8001da <clientTransmitted>
+ 73c:	90 91 db 01 	lds	r25, 0x01DB	; 0x8001db <clientTransmitted+0x1>
+ 740:	89 2b       	or	r24, r25
+ 742:	a9 f4       	brne	.+42     	; 0x76e <main+0x112>
+		{
+			checkButtons();
+ 744:	0e 94 34 02 	call	0x468	; 0x468 <checkButtons>
+
+	while (1) 
+    {	
+		sei();
+		
+		while (changedBleacher == 0 && clientTransmitted == 0)
+ 748:	80 91 d1 01 	lds	r24, 0x01D1	; 0x8001d1 <changedBleacher>
+ 74c:	90 91 d2 01 	lds	r25, 0x01D2	; 0x8001d2 <changedBleacher+0x1>
+ 750:	00 97       	sbiw	r24, 0x00	; 0
+ 752:	39 f4       	brne	.+14     	; 0x762 <main+0x106>
+ 754:	80 91 da 01 	lds	r24, 0x01DA	; 0x8001da <clientTransmitted>
+ 758:	90 91 db 01 	lds	r25, 0x01DB	; 0x8001db <clientTransmitted+0x1>
+ 75c:	89 2b       	or	r24, r25
+ 75e:	91 f3       	breq	.-28     	; 0x744 <main+0xe8>
+ 760:	06 c0       	rjmp	.+12     	; 0x76e <main+0x112>
+		{
+			checkButtons();
+		}
+		
+		if (changedBleacher == 1) changedBleacher = 0;
+ 762:	01 97       	sbiw	r24, 0x01	; 1
+ 764:	21 f4       	brne	.+8      	; 0x76e <main+0x112>
+ 766:	10 92 d2 01 	sts	0x01D2, r1	; 0x8001d2 <changedBleacher+0x1>
+ 76a:	10 92 d1 01 	sts	0x01D1, r1	; 0x8001d1 <changedBleacher>
+		if (clientTransmitted == 1) clientTransmitted = 0;
+ 76e:	80 91 da 01 	lds	r24, 0x01DA	; 0x8001da <clientTransmitted>
+ 772:	90 91 db 01 	lds	r25, 0x01DB	; 0x8001db <clientTransmitted+0x1>
+ 776:	01 97       	sbiw	r24, 0x01	; 1
+ 778:	21 f4       	brne	.+8      	; 0x782 <main+0x126>
+ 77a:	10 92 db 01 	sts	0x01DB, r1	; 0x8001db <clientTransmitted+0x1>
+ 77e:	10 92 da 01 	sts	0x01DA, r1	; 0x8001da <clientTransmitted>
+		
+		cli();
+ 782:	f8 94       	cli
+		
+ 		/* Read values */
+		ticket0 = readSensor("Ticket0");
+ 784:	88 e8       	ldi	r24, 0x88	; 136
+ 786:	91 e0       	ldi	r25, 0x01	; 1
+ 788:	0e 94 33 01 	call	0x266	; 0x266 <readSensor>
+ 78c:	80 93 d6 01 	sts	0x01D6, r24	; 0x8001d6 <ticket0>
+		ticket1 = readSensor("Ticket1");
+ 790:	80 e9       	ldi	r24, 0x90	; 144
+ 792:	91 e0       	ldi	r25, 0x01	; 1
+ 794:	0e 94 33 01 	call	0x266	; 0x266 <readSensor>
+ 798:	80 93 cd 01 	sts	0x01CD, r24	; 0x8001cd <ticket1>
+		ticket2 = readSensor("Ticket2");
+ 79c:	88 e9       	ldi	r24, 0x98	; 152
+ 79e:	91 e0       	ldi	r25, 0x01	; 1
+ 7a0:	0e 94 33 01 	call	0x266	; 0x266 <readSensor>
+ 7a4:	80 93 d5 01 	sts	0x01D5, r24	; 0x8001d5 <ticket2>
+		ticket3 = readSensor("Ticket3");
+ 7a8:	80 ea       	ldi	r24, 0xA0	; 160
+ 7aa:	91 e0       	ldi	r25, 0x01	; 1
+ 7ac:	0e 94 33 01 	call	0x266	; 0x266 <readSensor>
+ 7b0:	80 93 d3 01 	sts	0x01D3, r24	; 0x8001d3 <ticket3>
+		updateParking("Parking0", 0);
+ 7b4:	60 e0       	ldi	r22, 0x00	; 0
+ 7b6:	70 e0       	ldi	r23, 0x00	; 0
+ 7b8:	88 ea       	ldi	r24, 0xA8	; 168
+ 7ba:	91 e0       	ldi	r25, 0x01	; 1
+ 7bc:	0e 94 91 02 	call	0x522	; 0x522 <updateParking>
+		updateParking("Parking1", 1);
+ 7c0:	61 e0       	ldi	r22, 0x01	; 1
+ 7c2:	70 e0       	ldi	r23, 0x00	; 0
+ 7c4:	81 eb       	ldi	r24, 0xB1	; 177
+ 7c6:	91 e0       	ldi	r25, 0x01	; 1
+ 7c8:	0e 94 91 02 	call	0x522	; 0x522 <updateParking>
+		updateParking("Parking2", 2);
+ 7cc:	62 e0       	ldi	r22, 0x02	; 2
+ 7ce:	70 e0       	ldi	r23, 0x00	; 0
+ 7d0:	8a eb       	ldi	r24, 0xBA	; 186
+ 7d2:	91 e0       	ldi	r25, 0x01	; 1
+ 7d4:	0e 94 91 02 	call	0x522	; 0x522 <updateParking>
+		updateParking("Parking3", 3);
+ 7d8:	63 e0       	ldi	r22, 0x03	; 3
+ 7da:	70 e0       	ldi	r23, 0x00	; 0
+ 7dc:	83 ec       	ldi	r24, 0xC3	; 195
+ 7de:	91 e0       	ldi	r25, 0x01	; 1
+ 7e0:	0e 94 91 02 	call	0x522	; 0x522 <updateParking>
+		
+		/* Update board status */
+		if (refreshLCD == 1)
+ 7e4:	80 91 cf 01 	lds	r24, 0x01CF	; 0x8001cf <refreshLCD>
+ 7e8:	90 91 d0 01 	lds	r25, 0x01D0	; 0x8001d0 <refreshLCD+0x1>
+ 7ec:	01 97       	sbiw	r24, 0x01	; 1
+ 7ee:	31 f4       	brne	.+12     	; 0x7fc <main+0x1a0>
+		{
+			refreshLCD = 0;
+ 7f0:	10 92 d0 01 	sts	0x01D0, r1	; 0x8001d0 <refreshLCD+0x1>
+ 7f4:	10 92 cf 01 	sts	0x01CF, r1	; 0x8001cf <refreshLCD>
+			updateParkingLCD();
+ 7f8:	0e 94 08 03 	call	0x610	; 0x610 <updateParkingLCD>
+		}
+		
+		/* Update Tickets LEDs */
+		if (nodeIndex == 0) PORTB = ticket0;
+ 7fc:	80 91 d7 01 	lds	r24, 0x01D7	; 0x8001d7 <nodeIndex>
+ 800:	90 91 d8 01 	lds	r25, 0x01D8	; 0x8001d8 <nodeIndex+0x1>
+ 804:	89 2b       	or	r24, r25
+ 806:	19 f4       	brne	.+6      	; 0x80e <main+0x1b2>
+ 808:	80 91 d6 01 	lds	r24, 0x01D6	; 0x8001d6 <ticket0>
+ 80c:	88 bb       	out	0x18, r24	; 24
+		if (nodeIndex == 1) PORTB = ticket1;
+ 80e:	80 91 d7 01 	lds	r24, 0x01D7	; 0x8001d7 <nodeIndex>
+ 812:	90 91 d8 01 	lds	r25, 0x01D8	; 0x8001d8 <nodeIndex+0x1>
+ 816:	01 97       	sbiw	r24, 0x01	; 1
+ 818:	19 f4       	brne	.+6      	; 0x820 <main+0x1c4>
+ 81a:	80 91 cd 01 	lds	r24, 0x01CD	; 0x8001cd <ticket1>
+ 81e:	88 bb       	out	0x18, r24	; 24
+		if (nodeIndex == 2) PORTB = ticket2;
+ 820:	80 91 d7 01 	lds	r24, 0x01D7	; 0x8001d7 <nodeIndex>
+ 824:	90 91 d8 01 	lds	r25, 0x01D8	; 0x8001d8 <nodeIndex+0x1>
+ 828:	02 97       	sbiw	r24, 0x02	; 2
+ 82a:	19 f4       	brne	.+6      	; 0x832 <main+0x1d6>
+ 82c:	80 91 d5 01 	lds	r24, 0x01D5	; 0x8001d5 <ticket2>
+ 830:	88 bb       	out	0x18, r24	; 24
+		if (nodeIndex == 3) PORTB = ticket3;
+ 832:	80 91 d7 01 	lds	r24, 0x01D7	; 0x8001d7 <nodeIndex>
+ 836:	90 91 d8 01 	lds	r25, 0x01D8	; 0x8001d8 <nodeIndex+0x1>
+ 83a:	03 97       	sbiw	r24, 0x03	; 3
+ 83c:	09 f0       	breq	.+2      	; 0x840 <main+0x1e4>
+ 83e:	75 cf       	rjmp	.-278    	; 0x72a <main+0xce>
+ 840:	80 91 d3 01 	lds	r24, 0x01D3	; 0x8001d3 <ticket3>
+ 844:	88 bb       	out	0x18, r24	; 24
+ 846:	71 cf       	rjmp	.-286    	; 0x72a <main+0xce>
+
+00000848 <usart_init>:
+ * @param[in] ucsrc control register
+ * @param[in] ubrr baud rate register
+*/
+void usart_init
+(unsigned char ucsra, unsigned char ucsrb, unsigned char ucsrc, unsigned int ubrr)
+{
+ 848:	cf 93       	push	r28
+ 84a:	df 93       	push	r29
+ 84c:	00 d0       	rcall	.+0      	; 0x84e <usart_init+0x6>
+ 84e:	cd b7       	in	r28, 0x3d	; 61
+ 850:	de b7       	in	r29, 0x3e	; 62
+ 852:	3a 83       	std	Y+2, r19	; 0x02
+ 854:	29 83       	std	Y+1, r18	; 0x01
+	UCSRA = ucsra;
+ 856:	8b b9       	out	0x0b, r24	; 11
+	UCSRB = ucsrb;
+ 858:	6a b9       	out	0x0a, r22	; 10
+	UCSRC = ucsrc;
+ 85a:	40 bd       	out	0x20, r20	; 32
+	UBRRL = ((unsigned char *)&ubrr)[0];
+ 85c:	89 81       	ldd	r24, Y+1	; 0x01
+ 85e:	89 b9       	out	0x09, r24	; 9
+	UBRRH = ((unsigned char *)&ubrr)[1];
+ 860:	8a 81       	ldd	r24, Y+2	; 0x02
+ 862:	80 bd       	out	0x20, r24	; 32
+}
+ 864:	0f 90       	pop	r0
+ 866:	0f 90       	pop	r0
+ 868:	df 91       	pop	r29
+ 86a:	cf 91       	pop	r28
+ 86c:	08 95       	ret
+
+0000086e <usart_transmit>:
+ * @param[in] data byte to be transmitted
+*/
+void usart_transmit
+(unsigned char data)
+{
+	while (((UCSRA >> UDRE) & 0x01) == 0x00);
+ 86e:	5d 9b       	sbis	0x0b, 5	; 11
+ 870:	fe cf       	rjmp	.-4      	; 0x86e <usart_transmit>
+	UDR = data;
+ 872:	8c b9       	out	0x0c, r24	; 12
+ 874:	08 95       	ret
+
+00000876 <usart_receive>:
+ * Receives a byte of data
+ * @param[out] UDR data register
+*/
+unsigned char usart_receive()
+{
+	while (((UCSRA >> RXC) & 0x01) == 0x00);
+ 876:	5f 9b       	sbis	0x0b, 7	; 11
+ 878:	fe cf       	rjmp	.-4      	; 0x876 <usart_receive>
+	return UDR;
+ 87a:	8c b1       	in	r24, 0x0c	; 12
+}
+ 87c:	08 95       	ret
+
+0000087e <usart_transmit_string>:
+ * Sends a string of data
+ * @param[in] string data string to be transmitted
+*/
+void usart_transmit_string
+(char string[])
+{
+ 87e:	cf 93       	push	r28
+ 880:	df 93       	push	r29
+ 882:	ec 01       	movw	r28, r24
+	for (int i = 0; string[i] != '\0'; ++i)
+ 884:	88 81       	ld	r24, Y
+ 886:	88 23       	and	r24, r24
+ 888:	31 f0       	breq	.+12     	; 0x896 <usart_transmit_string+0x18>
+ 88a:	21 96       	adiw	r28, 0x01	; 1
+	usart_transmit(string[i]);
+ 88c:	0e 94 37 04 	call	0x86e	; 0x86e <usart_transmit>
+ * @param[in] string data string to be transmitted
+*/
+void usart_transmit_string
+(char string[])
+{
+	for (int i = 0; string[i] != '\0'; ++i)
+ 890:	89 91       	ld	r24, Y+
+ 892:	81 11       	cpse	r24, r1
+ 894:	fb cf       	rjmp	.-10     	; 0x88c <usart_transmit_string+0xe>
+	usart_transmit(string[i]);
+}
+ 896:	df 91       	pop	r29
+ 898:	cf 91       	pop	r28
+ 89a:	08 95       	ret
+
+0000089c <usart_clear_buffer>:
+/**
+ * Clears USART buffer
+*/
+void usart_clear_buffer()
+{
+	while (((UCSRA >> RXC) & 0x01) != 0x00) usart_receive();
+ 89c:	5f 9b       	sbis	0x0b, 7	; 11
+ 89e:	04 c0       	rjmp	.+8      	; 0x8a8 <usart_clear_buffer+0xc>
+ 8a0:	0e 94 3b 04 	call	0x876	; 0x876 <usart_receive>
+ 8a4:	5f 99       	sbic	0x0b, 7	; 11
+ 8a6:	fc cf       	rjmp	.-8      	; 0x8a0 <usart_clear_buffer+0x4>
+ 8a8:	08 95       	ret
+
+000008aa <_exit>:
+ 8aa:	f8 94       	cli
+
+000008ac <__stop_program>:
+ 8ac:	ff cf       	rjmp	.-2      	; 0x8ac <__stop_program>

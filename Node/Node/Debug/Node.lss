@@ -1,0 +1,1996 @@
+
+Node.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000c12  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000018c  00800060  00000c12  00000ca6  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000011  008001ec  008001ec  00000e32  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000e32  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000e64  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000001f0  00000000  00000000  00000ea0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00002486  00000000  00000000  00001090  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000d08  00000000  00000000  00003516  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000011b4  00000000  00000000  0000421e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000004c8  00000000  00000000  000053d4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000071d  00000000  00000000  0000589c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000170c  00000000  00000000  00005fb9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000190  00000000  00000000  000076c5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__ctors_end>
+   4:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+   8:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+   c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  10:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  14:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  18:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  1c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  20:	0c 94 11 04 	jmp	0x822	; 0x822 <__vector_8>
+  24:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  28:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  2c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  30:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  34:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  38:	0c 94 25 04 	jmp	0x84a	; 0x84a <__vector_14>
+  3c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  40:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  44:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  48:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  4c:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  50:	0c 94 5b 00 	jmp	0xb6	; 0xb6 <__bad_interrupt>
+  54:	38 03       	fmul	r19, r16
+  56:	08 03       	fmul	r16, r16
+  58:	0a 03       	fmul	r16, r18
+  5a:	0c 03       	fmul	r16, r20
+  5c:	0e 03       	fmul	r16, r22
+  5e:	10 03       	mulsu	r17, r16
+  60:	12 03       	mulsu	r17, r18
+  62:	14 03       	mulsu	r17, r20
+  64:	36 03       	mulsu	r19, r22
+  66:	36 03       	mulsu	r19, r22
+  68:	36 03       	mulsu	r19, r22
+  6a:	36 03       	mulsu	r19, r22
+  6c:	36 03       	mulsu	r19, r22
+  6e:	36 03       	mulsu	r19, r22
+  70:	36 03       	mulsu	r19, r22
+  72:	36 03       	mulsu	r19, r22
+  74:	16 03       	mulsu	r17, r22
+  76:	1e 03       	fmul	r17, r22
+  78:	26 03       	mulsu	r18, r22
+  7a:	2e 03       	fmul	r18, r22
+
+0000007c <__ctors_end>:
+  7c:	11 24       	eor	r1, r1
+  7e:	1f be       	out	0x3f, r1	; 63
+  80:	cf e5       	ldi	r28, 0x5F	; 95
+  82:	d4 e0       	ldi	r29, 0x04	; 4
+  84:	de bf       	out	0x3e, r29	; 62
+  86:	cd bf       	out	0x3d, r28	; 61
+
+00000088 <__do_copy_data>:
+  88:	11 e0       	ldi	r17, 0x01	; 1
+  8a:	a0 e6       	ldi	r26, 0x60	; 96
+  8c:	b0 e0       	ldi	r27, 0x00	; 0
+  8e:	e2 e1       	ldi	r30, 0x12	; 18
+  90:	fc e0       	ldi	r31, 0x0C	; 12
+  92:	02 c0       	rjmp	.+4      	; 0x98 <__do_copy_data+0x10>
+  94:	05 90       	lpm	r0, Z+
+  96:	0d 92       	st	X+, r0
+  98:	ac 3e       	cpi	r26, 0xEC	; 236
+  9a:	b1 07       	cpc	r27, r17
+  9c:	d9 f7       	brne	.-10     	; 0x94 <__do_copy_data+0xc>
+
+0000009e <__do_clear_bss>:
+  9e:	21 e0       	ldi	r18, 0x01	; 1
+  a0:	ac ee       	ldi	r26, 0xEC	; 236
+  a2:	b1 e0       	ldi	r27, 0x01	; 1
+  a4:	01 c0       	rjmp	.+2      	; 0xa8 <.do_clear_bss_start>
+
+000000a6 <.do_clear_bss_loop>:
+  a6:	1d 92       	st	X+, r1
+
+000000a8 <.do_clear_bss_start>:
+  a8:	ad 3f       	cpi	r26, 0xFD	; 253
+  aa:	b2 07       	cpc	r27, r18
+  ac:	e1 f7       	brne	.-8      	; 0xa6 <.do_clear_bss_loop>
+  ae:	0e 94 ee 04 	call	0x9dc	; 0x9dc <main>
+  b2:	0c 94 07 06 	jmp	0xc0e	; 0xc0e <_exit>
+
+000000b6 <__bad_interrupt>:
+  b6:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ba <addSensorESP>:
+	usart_transmit_string("ESP:sensorValue: \"");
+	usart_transmit_string(sensorName);
+	usart_transmit_string("\"[");
+	usart_transmit_string(sensorValue);
+	usart_transmit_string("]\n");
+}
+  ba:	cf 93       	push	r28
+  bc:	df 93       	push	r29
+  be:	ec 01       	movw	r28, r24
+  c0:	80 e6       	ldi	r24, 0x60	; 96
+  c2:	90 e0       	ldi	r25, 0x00	; 0
+  c4:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+  c8:	ce 01       	movw	r24, r28
+  ca:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+  ce:	81 e7       	ldi	r24, 0x71	; 113
+  d0:	90 e0       	ldi	r25, 0x00	; 0
+  d2:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+  d6:	df 91       	pop	r29
+  d8:	cf 91       	pop	r28
+  da:	08 95       	ret
+
+000000dc <clientTransmitESP>:
+  dc:	82 e9       	ldi	r24, 0x92	; 146
+  de:	90 e0       	ldi	r25, 0x00	; 0
+  e0:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+  e4:	08 95       	ret
+
+000000e6 <connectESP>:
+  e6:	86 ea       	ldi	r24, 0xA6	; 166
+  e8:	90 e0       	ldi	r25, 0x00	; 0
+  ea:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+  ee:	08 95       	ret
+
+000000f0 <debugESP>:
+  f0:	cf 93       	push	r28
+  f2:	df 93       	push	r29
+  f4:	ec 01       	movw	r28, r24
+  f6:	83 eb       	ldi	r24, 0xB3	; 179
+  f8:	90 e0       	ldi	r25, 0x00	; 0
+  fa:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+  fe:	ce 01       	movw	r24, r28
+ 100:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 104:	81 e7       	ldi	r24, 0x71	; 113
+ 106:	90 e0       	ldi	r25, 0x00	; 0
+ 108:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 10c:	df 91       	pop	r29
+ 10e:	cf 91       	pop	r28
+ 110:	08 95       	ret
+
+00000112 <hostESP>:
+ 112:	cf 93       	push	r28
+ 114:	df 93       	push	r29
+ 116:	ec 01       	movw	r28, r24
+ 118:	8f ee       	ldi	r24, 0xEF	; 239
+ 11a:	90 e0       	ldi	r25, 0x00	; 0
+ 11c:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 120:	ce 01       	movw	r24, r28
+ 122:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 126:	81 e7       	ldi	r24, 0x71	; 113
+ 128:	90 e0       	ldi	r25, 0x00	; 0
+ 12a:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 12e:	df 91       	pop	r29
+ 130:	cf 91       	pop	r28
+ 132:	08 95       	ret
+
+00000134 <passwESP>:
+ 134:	cf 93       	push	r28
+ 136:	df 93       	push	r29
+ 138:	ec 01       	movw	r28, r24
+ 13a:	8d ef       	ldi	r24, 0xFD	; 253
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 142:	ce 01       	movw	r24, r28
+ 144:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 148:	81 e7       	ldi	r24, 0x71	; 113
+ 14a:	90 e0       	ldi	r25, 0x00	; 0
+ 14c:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 150:	df 91       	pop	r29
+ 152:	cf 91       	pop	r28
+ 154:	08 95       	ret
+
+00000156 <restartESP>:
+ 156:	8d e0       	ldi	r24, 0x0D	; 13
+ 158:	91 e0       	ldi	r25, 0x01	; 1
+ 15a:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 15e:	08 95       	ret
+
+00000160 <ssidESP>:
+ * SSID to be used for the connection
+ * @param[in] ssid
+*/
+void ssidESP
+(char ssid[])
+{
+ 160:	cf 93       	push	r28
+ 162:	df 93       	push	r29
+ 164:	ec 01       	movw	r28, r24
+	usart_transmit_string("ESP:ssid: \"");
+ 166:	83 e3       	ldi	r24, 0x33	; 51
+ 168:	91 e0       	ldi	r25, 0x01	; 1
+ 16a:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+	usart_transmit_string(ssid);
+ 16e:	ce 01       	movw	r24, r28
+ 170:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+	usart_transmit_string("\"\n");
+ 174:	81 e7       	ldi	r24, 0x71	; 113
+ 176:	90 e0       	ldi	r25, 0x00	; 0
+ 178:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+}
+ 17c:	df 91       	pop	r29
+ 17e:	cf 91       	pop	r28
+ 180:	08 95       	ret
+
+00000182 <sensorValueESPByte>:
+* @param[in] sensorName
+* @param[in] sensorValue
+*/
+void sensorValueESPByte
+(char sensorName[], char sensorValue)
+{
+ 182:	0f 93       	push	r16
+ 184:	1f 93       	push	r17
+ 186:	cf 93       	push	r28
+ 188:	8c 01       	movw	r16, r24
+ 18a:	c6 2f       	mov	r28, r22
+	usart_transmit_string("ESP:sensorValue: \"");
+ 18c:	8a e1       	ldi	r24, 0x1A	; 26
+ 18e:	91 e0       	ldi	r25, 0x01	; 1
+ 190:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+	usart_transmit_string(sensorName);
+ 194:	c8 01       	movw	r24, r16
+ 196:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+	usart_transmit_string("\"[");
+ 19a:	8d e2       	ldi	r24, 0x2D	; 45
+ 19c:	91 e0       	ldi	r25, 0x01	; 1
+ 19e:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+	usart_transmit(sensorValue);
+ 1a2:	8c 2f       	mov	r24, r28
+ 1a4:	0e 94 d4 05 	call	0xba8	; 0xba8 <usart_transmit>
+	usart_transmit_string("]\n");
+ 1a8:	80 e3       	ldi	r24, 0x30	; 48
+ 1aa:	91 e0       	ldi	r25, 0x01	; 1
+ 1ac:	0e 94 dc 05 	call	0xbb8	; 0xbb8 <usart_transmit_string>
+ 1b0:	cf 91       	pop	r28
+ 1b2:	1f 91       	pop	r17
+ 1b4:	0f 91       	pop	r16
+ 1b6:	08 95       	ret
+
+000001b8 <consume_response>:
+	getValueESP(sensorName);
+	i = 0;
+	while((dataAr[i++] = usart_receive()) != '\n');
+	
+	return parsedValue((unsigned char*) dataAr);
+}
+ 1b8:	0f 93       	push	r16
+ 1ba:	1f 93       	push	r17
+ 1bc:	cf 93       	push	r28
+ 1be:	df 93       	push	r29
+ 1c0:	cd b7       	in	r28, 0x3d	; 61
+ 1c2:	de b7       	in	r29, 0x3e	; 62
+ 1c4:	c4 56       	subi	r28, 0x64	; 100
+ 1c6:	d1 09       	sbc	r29, r1
+ 1c8:	0f b6       	in	r0, 0x3f	; 63
+ 1ca:	f8 94       	cli
+ 1cc:	de bf       	out	0x3e, r29	; 62
+ 1ce:	0f be       	out	0x3f, r0	; 63
+ 1d0:	cd bf       	out	0x3d, r28	; 61
+ 1d2:	8e 01       	movw	r16, r28
+ 1d4:	0f 5f       	subi	r16, 0xFF	; 255
+ 1d6:	1f 4f       	sbci	r17, 0xFF	; 255
+ 1d8:	0e 94 d8 05 	call	0xbb0	; 0xbb0 <usart_receive>
+ 1dc:	f8 01       	movw	r30, r16
+ 1de:	81 93       	st	Z+, r24
+ 1e0:	8f 01       	movw	r16, r30
+ 1e2:	8a 30       	cpi	r24, 0x0A	; 10
+ 1e4:	c9 f7       	brne	.-14     	; 0x1d8 <consume_response+0x20>
+ 1e6:	ce 01       	movw	r24, r28
+ 1e8:	01 96       	adiw	r24, 0x01	; 1
+ 1ea:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+ 1ee:	ff ef       	ldi	r31, 0xFF	; 255
+ 1f0:	21 ee       	ldi	r18, 0xE1	; 225
+ 1f2:	84 e0       	ldi	r24, 0x04	; 4
+ 1f4:	f1 50       	subi	r31, 0x01	; 1
+ 1f6:	20 40       	sbci	r18, 0x00	; 0
+ 1f8:	80 40       	sbci	r24, 0x00	; 0
+ 1fa:	e1 f7       	brne	.-8      	; 0x1f4 <consume_response+0x3c>
+ 1fc:	00 c0       	rjmp	.+0      	; 0x1fe <consume_response+0x46>
+ 1fe:	00 00       	nop
+ 200:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+ 204:	cc 59       	subi	r28, 0x9C	; 156
+ 206:	df 4f       	sbci	r29, 0xFF	; 255
+ 208:	0f b6       	in	r0, 0x3f	; 63
+ 20a:	f8 94       	cli
+ 20c:	de bf       	out	0x3e, r29	; 62
+ 20e:	0f be       	out	0x3f, r0	; 63
+ 210:	cd bf       	out	0x3d, r28	; 61
+ 212:	df 91       	pop	r29
+ 214:	cf 91       	pop	r28
+ 216:	1f 91       	pop	r17
+ 218:	0f 91       	pop	r16
+ 21a:	08 95       	ret
+
+0000021c <consume_response_no_print>:
+ 21c:	0e 94 d8 05 	call	0xbb0	; 0xbb0 <usart_receive>
+ 220:	8a 30       	cpi	r24, 0x0A	; 10
+ 222:	e1 f7       	brne	.-8      	; 0x21c <consume_response_no_print>
+ 224:	08 95       	ret
+
+00000226 <addSensor>:
+ 226:	cf 93       	push	r28
+ 228:	df 93       	push	r29
+ 22a:	ec 01       	movw	r28, r24
+ 22c:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+ 230:	8a e3       	ldi	r24, 0x3A	; 58
+ 232:	0e 94 ff 01 	call	0x3fe	; 0x3fe <lcd_data_sim>
+ 236:	0e 94 eb 05 	call	0xbd6	; 0xbd6 <usart_clear_buffer>
+ 23a:	ce 01       	movw	r24, r28
+ 23c:	0e 94 5d 00 	call	0xba	; 0xba <addSensorESP>
+ 240:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <consume_response>
+ 244:	df 91       	pop	r29
+ 246:	cf 91       	pop	r28
+ 248:	08 95       	ret
+
+0000024a <sensorAddValue>:
+ 24a:	1f 93       	push	r17
+ 24c:	cf 93       	push	r28
+ 24e:	df 93       	push	r29
+ 250:	ec 01       	movw	r28, r24
+ 252:	16 2f       	mov	r17, r22
+ 254:	0e 94 eb 05 	call	0xbd6	; 0xbd6 <usart_clear_buffer>
+ 258:	61 2f       	mov	r22, r17
+ 25a:	ce 01       	movw	r24, r28
+ 25c:	0e 94 c1 00 	call	0x182	; 0x182 <sensorValueESPByte>
+ 260:	0e 94 0e 01 	call	0x21c	; 0x21c <consume_response_no_print>
+ 264:	df 91       	pop	r29
+ 266:	cf 91       	pop	r28
+ 268:	1f 91       	pop	r17
+ 26a:	08 95       	ret
+
+0000026c <clientTransmit>:
+/**
+ * Sends sensor values to server
+*/
+void clientTransmit()
+{
+	usart_clear_buffer();
+ 26c:	0e 94 eb 05 	call	0xbd6	; 0xbd6 <usart_clear_buffer>
+	connectESP();
+ 270:	0e 94 73 00 	call	0xe6	; 0xe6 <connectESP>
+	consume_response_no_print();
+ 274:	0e 94 0e 01 	call	0x21c	; 0x21c <consume_response_no_print>
+	
+	clientTransmitESP();
+ 278:	0e 94 6e 00 	call	0xdc	; 0xdc <clientTransmitESP>
+ 27c:	08 95       	ret
+
+0000027e <scan_row_sim>:
+ * @param[in] rowNumber number of line for reading
+ * @param[out] keypadRow status of keypad row in 4 LSBs
+*/
+unsigned char scan_row_sim(unsigned char rowNumber)
+{
+	PORTC = rowNumber;
+ 27e:	85 bb       	out	0x15, r24	; 21
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 280:	87 ee       	ldi	r24, 0xE7	; 231
+ 282:	93 e0       	ldi	r25, 0x03	; 3
+ 284:	01 97       	sbiw	r24, 0x01	; 1
+ 286:	f1 f7       	brne	.-4      	; 0x284 <scan_row_sim+0x6>
+ 288:	00 c0       	rjmp	.+0      	; 0x28a <scan_row_sim+0xc>
+ 28a:	00 00       	nop
+	_delay_us(500);	//code segment for proper function of remote access
+
+	;
+	;
+	return (PINC & 0x0F);
+ 28c:	83 b3       	in	r24, 0x13	; 19
+}
+ 28e:	8f 70       	andi	r24, 0x0F	; 15
+ 290:	08 95       	ret
+
+00000292 <scan_keypad_sim>:
+/**
+ * Checks keypad for pressed buttons
+ * @param[out] keypad button state
+*/
+unsigned int scan_keypad_sim()
+{
+ 292:	cf 93       	push	r28
+ 294:	df 93       	push	r29
+	unsigned char stateMSB, stateLSB;
+
+	stateMSB = scan_row_sim(0x10); //PC4: 1 2 3 A
+ 296:	80 e1       	ldi	r24, 0x10	; 16
+ 298:	0e 94 3f 01 	call	0x27e	; 0x27e <scan_row_sim>
+	stateMSB = (((stateMSB & 0x0F) << 4) | ((stateMSB & 0xF0) >> 4));
+ 29c:	c8 2f       	mov	r28, r24
+ 29e:	c2 95       	swap	r28
+	stateMSB = stateMSB + scan_row_sim(0x20); //PC5: 4 5 6 B
+ 2a0:	80 e2       	ldi	r24, 0x20	; 32
+ 2a2:	0e 94 3f 01 	call	0x27e	; 0x27e <scan_row_sim>
+ 2a6:	c8 0f       	add	r28, r24
+	stateLSB = scan_row_sim(0x40); //PC6: 7 8 9 C
+ 2a8:	80 e4       	ldi	r24, 0x40	; 64
+ 2aa:	0e 94 3f 01 	call	0x27e	; 0x27e <scan_row_sim>
+	stateLSB = (((stateLSB & 0x0F) << 4) | ((stateLSB & 0xF0) >> 4));
+ 2ae:	d8 2f       	mov	r29, r24
+ 2b0:	d2 95       	swap	r29
+	stateLSB = stateLSB + scan_row_sim(0x80); //PC7: * 0 # D
+ 2b2:	80 e8       	ldi	r24, 0x80	; 128
+ 2b4:	0e 94 3f 01 	call	0x27e	; 0x27e <scan_row_sim>
+	
+	return (stateMSB << 8) + stateLSB;
+ 2b8:	2c 2f       	mov	r18, r28
+ 2ba:	30 e0       	ldi	r19, 0x00	; 0
+ 2bc:	32 2f       	mov	r19, r18
+ 2be:	22 27       	eor	r18, r18
+ 2c0:	8d 0f       	add	r24, r29
+}
+ 2c2:	a9 01       	movw	r20, r18
+ 2c4:	48 0f       	add	r20, r24
+ 2c6:	51 1d       	adc	r21, r1
+ 2c8:	ca 01       	movw	r24, r20
+ 2ca:	df 91       	pop	r29
+ 2cc:	cf 91       	pop	r28
+ 2ce:	08 95       	ret
+
+000002d0 <scan_keypad_rising_edge_sim>:
+ * Checks keypad for buttons that weren't pressed the last time we checked and now are pressed
+ * @param[in] _tmp_ previous button state (new button state saved here too)
+ * @param[out] keypad representative of number of buttons that have just been pressed
+*/
+unsigned int scan_keypad_rising_edge_sim(unsigned int _tmp_)
+{
+ 2d0:	0f 93       	push	r16
+ 2d2:	1f 93       	push	r17
+ 2d4:	cf 93       	push	r28
+ 2d6:	df 93       	push	r29
+ 2d8:	ec 01       	movw	r28, r24
+	unsigned int pressedPads, previousPressedPads;
+
+	pressedPads = scan_keypad_sim();
+ 2da:	0e 94 49 01 	call	0x292	; 0x292 <scan_keypad_sim>
+ 2de:	8c 01       	movw	r16, r24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 2e0:	8f e2       	ldi	r24, 0x2F	; 47
+ 2e2:	95 e7       	ldi	r25, 0x75	; 117
+ 2e4:	01 97       	sbiw	r24, 0x01	; 1
+ 2e6:	f1 f7       	brne	.-4      	; 0x2e4 <scan_keypad_rising_edge_sim+0x14>
+ 2e8:	00 c0       	rjmp	.+0      	; 0x2ea <scan_keypad_rising_edge_sim+0x1a>
+ 2ea:	00 00       	nop
+	_delay_ms(15);
+	pressedPads = pressedPads & scan_keypad_sim();
+ 2ec:	0e 94 49 01 	call	0x292	; 0x292 <scan_keypad_sim>
+	previousPressedPads = _tmp_;
+	_tmp_ = pressedPads;
+	
+	return pressedPads & ~previousPressedPads;
+ 2f0:	80 23       	and	r24, r16
+ 2f2:	91 23       	and	r25, r17
+ 2f4:	c0 95       	com	r28
+ 2f6:	d0 95       	com	r29
+}
+ 2f8:	8c 23       	and	r24, r28
+ 2fa:	9d 23       	and	r25, r29
+ 2fc:	df 91       	pop	r29
+ 2fe:	cf 91       	pop	r28
+ 300:	1f 91       	pop	r17
+ 302:	0f 91       	pop	r16
+ 304:	08 95       	ret
+
+00000306 <keypad_to_ascii_sim>:
+ * @param[in] state representative of keypad state (use scan_keypad_sim or scan_keypad_rising_edge_sim)
+ * @param[out] char ASCII code of the first pressed button
+*/
+unsigned char keypad_to_ascii_sim(unsigned int state)
+{
+	switch(state)
+ 306:	80 38       	cpi	r24, 0x80	; 128
+ 308:	91 05       	cpc	r25, r1
+ 30a:	09 f4       	brne	.+2      	; 0x30e <keypad_to_ascii_sim+0x8>
+ 30c:	47 c0       	rjmp	.+142    	; 0x39c <keypad_to_ascii_sim+0x96>
+ 30e:	c0 f4       	brcc	.+48     	; 0x340 <keypad_to_ascii_sim+0x3a>
+ 310:	88 30       	cpi	r24, 0x08	; 8
+ 312:	91 05       	cpc	r25, r1
+ 314:	d9 f1       	breq	.+118    	; 0x38c <keypad_to_ascii_sim+0x86>
+ 316:	50 f4       	brcc	.+20     	; 0x32c <keypad_to_ascii_sim+0x26>
+ 318:	82 30       	cpi	r24, 0x02	; 2
+ 31a:	91 05       	cpc	r25, r1
+ 31c:	99 f1       	breq	.+102    	; 0x384 <keypad_to_ascii_sim+0x7e>
+ 31e:	84 30       	cpi	r24, 0x04	; 4
+ 320:	91 05       	cpc	r25, r1
+ 322:	91 f1       	breq	.+100    	; 0x388 <keypad_to_ascii_sim+0x82>
+ 324:	01 97       	sbiw	r24, 0x01	; 1
+ 326:	09 f0       	breq	.+2      	; 0x32a <keypad_to_ascii_sim+0x24>
+ 328:	4b c0       	rjmp	.+150    	; 0x3c0 <keypad_to_ascii_sim+0xba>
+ 32a:	4c c0       	rjmp	.+152    	; 0x3c4 <keypad_to_ascii_sim+0xbe>
+ 32c:	80 32       	cpi	r24, 0x20	; 32
+ 32e:	91 05       	cpc	r25, r1
+ 330:	89 f1       	breq	.+98     	; 0x394 <keypad_to_ascii_sim+0x8e>
+ 332:	80 34       	cpi	r24, 0x40	; 64
+ 334:	91 05       	cpc	r25, r1
+ 336:	81 f1       	breq	.+96     	; 0x398 <keypad_to_ascii_sim+0x92>
+ 338:	40 97       	sbiw	r24, 0x10	; 16
+ 33a:	09 f0       	breq	.+2      	; 0x33e <keypad_to_ascii_sim+0x38>
+ 33c:	41 c0       	rjmp	.+130    	; 0x3c0 <keypad_to_ascii_sim+0xba>
+ 33e:	28 c0       	rjmp	.+80     	; 0x390 <keypad_to_ascii_sim+0x8a>
+ 340:	81 15       	cp	r24, r1
+ 342:	28 e0       	ldi	r18, 0x08	; 8
+ 344:	92 07       	cpc	r25, r18
+ 346:	91 f1       	breq	.+100    	; 0x3ac <keypad_to_ascii_sim+0xa6>
+ 348:	60 f4       	brcc	.+24     	; 0x362 <keypad_to_ascii_sim+0x5c>
+ 34a:	81 15       	cp	r24, r1
+ 34c:	22 e0       	ldi	r18, 0x02	; 2
+ 34e:	92 07       	cpc	r25, r18
+ 350:	49 f1       	breq	.+82     	; 0x3a4 <keypad_to_ascii_sim+0x9e>
+ 352:	81 15       	cp	r24, r1
+ 354:	24 e0       	ldi	r18, 0x04	; 4
+ 356:	92 07       	cpc	r25, r18
+ 358:	39 f1       	breq	.+78     	; 0x3a8 <keypad_to_ascii_sim+0xa2>
+ 35a:	81 15       	cp	r24, r1
+ 35c:	91 40       	sbci	r25, 0x01	; 1
+ 35e:	81 f5       	brne	.+96     	; 0x3c0 <keypad_to_ascii_sim+0xba>
+ 360:	1f c0       	rjmp	.+62     	; 0x3a0 <keypad_to_ascii_sim+0x9a>
+ 362:	81 15       	cp	r24, r1
+ 364:	20 e2       	ldi	r18, 0x20	; 32
+ 366:	92 07       	cpc	r25, r18
+ 368:	29 f1       	breq	.+74     	; 0x3b4 <keypad_to_ascii_sim+0xae>
+ 36a:	20 f4       	brcc	.+8      	; 0x374 <keypad_to_ascii_sim+0x6e>
+ 36c:	81 15       	cp	r24, r1
+ 36e:	90 41       	sbci	r25, 0x10	; 16
+ 370:	f9 f0       	breq	.+62     	; 0x3b0 <keypad_to_ascii_sim+0xaa>
+ 372:	26 c0       	rjmp	.+76     	; 0x3c0 <keypad_to_ascii_sim+0xba>
+ 374:	81 15       	cp	r24, r1
+ 376:	20 e4       	ldi	r18, 0x40	; 64
+ 378:	92 07       	cpc	r25, r18
+ 37a:	f1 f0       	breq	.+60     	; 0x3b8 <keypad_to_ascii_sim+0xb2>
+ 37c:	81 15       	cp	r24, r1
+ 37e:	90 48       	sbci	r25, 0x80	; 128
+ 380:	e9 f0       	breq	.+58     	; 0x3bc <keypad_to_ascii_sim+0xb6>
+ 382:	1e c0       	rjmp	.+60     	; 0x3c0 <keypad_to_ascii_sim+0xba>
+	{
+		case 0x01:
+		return '*';
+		case 0x02:
+		return '0';
+ 384:	80 e3       	ldi	r24, 0x30	; 48
+ 386:	08 95       	ret
+		case 0x04:
+		return '#';
+ 388:	83 e2       	ldi	r24, 0x23	; 35
+ 38a:	08 95       	ret
+		case 0x08:
+		return 'D';
+ 38c:	84 e4       	ldi	r24, 0x44	; 68
+ 38e:	08 95       	ret
+		case 0x10:
+		return '7';
+ 390:	87 e3       	ldi	r24, 0x37	; 55
+ 392:	08 95       	ret
+		case 0x20:
+		return '8';
+ 394:	88 e3       	ldi	r24, 0x38	; 56
+ 396:	08 95       	ret
+		case 0x40:
+		return '9';
+ 398:	89 e3       	ldi	r24, 0x39	; 57
+ 39a:	08 95       	ret
+		case 0x80:
+		return 'C';
+ 39c:	83 e4       	ldi	r24, 0x43	; 67
+ 39e:	08 95       	ret
+		case 0x100:
+		return '4';
+ 3a0:	84 e3       	ldi	r24, 0x34	; 52
+ 3a2:	08 95       	ret
+		case 0x200:
+		return '5';
+ 3a4:	85 e3       	ldi	r24, 0x35	; 53
+ 3a6:	08 95       	ret
+		case 0x400:
+		return '6';
+ 3a8:	86 e3       	ldi	r24, 0x36	; 54
+ 3aa:	08 95       	ret
+		case 0x800:
+		return 'B';
+ 3ac:	82 e4       	ldi	r24, 0x42	; 66
+ 3ae:	08 95       	ret
+		case 0x1000:
+		return '1';
+ 3b0:	81 e3       	ldi	r24, 0x31	; 49
+ 3b2:	08 95       	ret
+		case 0x2000:
+		return '2';
+ 3b4:	82 e3       	ldi	r24, 0x32	; 50
+ 3b6:	08 95       	ret
+		case 0x4000:
+		return '3';
+ 3b8:	83 e3       	ldi	r24, 0x33	; 51
+ 3ba:	08 95       	ret
+		case 0x8000:
+		return 'A';
+ 3bc:	81 e4       	ldi	r24, 0x41	; 65
+ 3be:	08 95       	ret
+		default:
+		return 0;
+ 3c0:	80 e0       	ldi	r24, 0x00	; 0
+ 3c2:	08 95       	ret
+unsigned char keypad_to_ascii_sim(unsigned int state)
+{
+	switch(state)
+	{
+		case 0x01:
+		return '*';
+ 3c4:	8a e2       	ldi	r24, 0x2A	; 42
+		case 0x8000:
+		return 'A';
+		default:
+		return 0;
+	}
+ 3c6:	08 95       	ret
+
+000003c8 <write_2_nibbles_sim>:
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 3c8:	ef ed       	ldi	r30, 0xDF	; 223
+ 3ca:	fe e2       	ldi	r31, 0x2E	; 46
+ 3cc:	31 97       	sbiw	r30, 0x01	; 1
+ 3ce:	f1 f7       	brne	.-4      	; 0x3cc <write_2_nibbles_sim+0x4>
+ 3d0:	00 c0       	rjmp	.+0      	; 0x3d2 <write_2_nibbles_sim+0xa>
+ 3d2:	00 00       	nop
+(unsigned char input)
+{
+	unsigned char lsb, msb;
+	_delay_us(6000);
+	
+	lsb = PIND & 0x0f;
+ 3d4:	90 b3       	in	r25, 0x10	; 16
+ 3d6:	9f 70       	andi	r25, 0x0F	; 15
+	msb = input & 0xf0;
+	PORTD = msb | lsb;
+ 3d8:	28 2f       	mov	r18, r24
+ 3da:	20 7f       	andi	r18, 0xF0	; 240
+ 3dc:	29 2b       	or	r18, r25
+ 3de:	22 bb       	out	0x12, r18	; 18
+	PORTD |= _BV(PD3);
+ 3e0:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 3e2:	93 98       	cbi	0x12, 3	; 18
+ 3e4:	ef ed       	ldi	r30, 0xDF	; 223
+ 3e6:	fe e2       	ldi	r31, 0x2E	; 46
+ 3e8:	31 97       	sbiw	r30, 0x01	; 1
+ 3ea:	f1 f7       	brne	.-4      	; 0x3e8 <write_2_nibbles_sim+0x20>
+ 3ec:	00 c0       	rjmp	.+0      	; 0x3ee <write_2_nibbles_sim+0x26>
+ 3ee:	00 00       	nop
+	
+	_delay_us(6000);
+	
+	msb = (((input & 0x0F) << 4) | ((input & 0xF0) >> 4));
+ 3f0:	82 95       	swap	r24
+	msb = msb & 0xf0;
+	PORTD = msb | lsb;
+ 3f2:	80 7f       	andi	r24, 0xF0	; 240
+ 3f4:	98 2b       	or	r25, r24
+ 3f6:	92 bb       	out	0x12, r25	; 18
+	PORTD |= _BV(PD3);
+ 3f8:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 3fa:	93 98       	cbi	0x12, 3	; 18
+ 3fc:	08 95       	ret
+
+000003fe <lcd_data_sim>:
+ * @param[in] data data byte to be transmitted
+*/
+void lcd_data_sim
+(unsigned char data)
+{
+	PORTD |= _BV(PD2);
+ 3fe:	92 9a       	sbi	0x12, 2	; 18
+	write_2_nibbles_sim(data);
+ 400:	0e 94 e4 01 	call	0x3c8	; 0x3c8 <write_2_nibbles_sim>
+ 404:	82 e7       	ldi	r24, 0x72	; 114
+ 406:	8a 95       	dec	r24
+ 408:	f1 f7       	brne	.-4      	; 0x406 <__LOCK_REGION_LENGTH__+0x6>
+ 40a:	00 c0       	rjmp	.+0      	; 0x40c <__LOCK_REGION_LENGTH__+0xc>
+ 40c:	08 95       	ret
+
+0000040e <lcd_command_sim>:
+ * @param[in] comm command byte to be transmitted
+*/
+void lcd_command_sim
+(unsigned char comm)
+{
+	PORTD &= ~(_BV(PD2));
+ 40e:	92 98       	cbi	0x12, 2	; 18
+	write_2_nibbles_sim(comm);
+ 410:	0e 94 e4 01 	call	0x3c8	; 0x3c8 <write_2_nibbles_sim>
+ 414:	88 e6       	ldi	r24, 0x68	; 104
+ 416:	8a 95       	dec	r24
+ 418:	f1 f7       	brne	.-4      	; 0x416 <lcd_command_sim+0x8>
+ 41a:	08 95       	ret
+
+0000041c <lcd_init>:
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 41c:	2f ef       	ldi	r18, 0xFF	; 255
+ 41e:	89 ef       	ldi	r24, 0xF9	; 249
+ 420:	90 e0       	ldi	r25, 0x00	; 0
+ 422:	21 50       	subi	r18, 0x01	; 1
+ 424:	80 40       	sbci	r24, 0x00	; 0
+ 426:	90 40       	sbci	r25, 0x00	; 0
+ 428:	e1 f7       	brne	.-8      	; 0x422 <lcd_init+0x6>
+ 42a:	00 c0       	rjmp	.+0      	; 0x42c <lcd_init+0x10>
+ 42c:	00 00       	nop
+ * @param[in] comm command byte to be transmitted
+*/
+void lcd_init()
+{
+	_delay_ms(40);
+	PORTD = 0x30;
+ 42e:	80 e3       	ldi	r24, 0x30	; 48
+ 430:	82 bb       	out	0x12, r24	; 18
+	PORTD |= _BV(PD3);
+ 432:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 434:	93 98       	cbi	0x12, 3	; 18
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 436:	e8 e6       	ldi	r30, 0x68	; 104
+ 438:	ea 95       	dec	r30
+ 43a:	f1 f7       	brne	.-4      	; 0x438 <lcd_init+0x1c>
+ 43c:	ef ec       	ldi	r30, 0xCF	; 207
+ 43e:	f7 e0       	ldi	r31, 0x07	; 7
+ 440:	31 97       	sbiw	r30, 0x01	; 1
+ 442:	f1 f7       	brne	.-4      	; 0x440 <lcd_init+0x24>
+ 444:	00 c0       	rjmp	.+0      	; 0x446 <lcd_init+0x2a>
+ 446:	00 00       	nop
+	_delay_us(39);
+	
+	_delay_us(1000);
+	
+	PORTD = 0x30;
+ 448:	82 bb       	out	0x12, r24	; 18
+	PORTD |= _BV(PD3);
+ 44a:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 44c:	93 98       	cbi	0x12, 3	; 18
+ 44e:	f8 e6       	ldi	r31, 0x68	; 104
+ 450:	fa 95       	dec	r31
+ 452:	f1 f7       	brne	.-4      	; 0x450 <lcd_init+0x34>
+ 454:	8f ec       	ldi	r24, 0xCF	; 207
+ 456:	97 e0       	ldi	r25, 0x07	; 7
+ 458:	01 97       	sbiw	r24, 0x01	; 1
+ 45a:	f1 f7       	brne	.-4      	; 0x458 <lcd_init+0x3c>
+ 45c:	00 c0       	rjmp	.+0      	; 0x45e <lcd_init+0x42>
+ 45e:	00 00       	nop
+	_delay_us(39);
+	
+	_delay_us(1000);
+	
+	PORTD = 0x20;
+ 460:	80 e2       	ldi	r24, 0x20	; 32
+ 462:	82 bb       	out	0x12, r24	; 18
+	PORTD |= _BV(PD3);
+ 464:	93 9a       	sbi	0x12, 3	; 18
+	PORTD &= ~(_BV(PD3));
+ 466:	93 98       	cbi	0x12, 3	; 18
+ 468:	98 e6       	ldi	r25, 0x68	; 104
+ 46a:	9a 95       	dec	r25
+ 46c:	f1 f7       	brne	.-4      	; 0x46a <__stack+0xb>
+ 46e:	ef ec       	ldi	r30, 0xCF	; 207
+ 470:	f7 e0       	ldi	r31, 0x07	; 7
+ 472:	31 97       	sbiw	r30, 0x01	; 1
+ 474:	f1 f7       	brne	.-4      	; 0x472 <__stack+0x13>
+ 476:	00 c0       	rjmp	.+0      	; 0x478 <__stack+0x19>
+ 478:	00 00       	nop
+	_delay_us(39);
+	
+	_delay_us(1000);
+	
+	lcd_command_sim(0x28);
+ 47a:	88 e2       	ldi	r24, 0x28	; 40
+ 47c:	0e 94 07 02 	call	0x40e	; 0x40e <lcd_command_sim>
+	lcd_command_sim(0x0c);
+ 480:	8c e0       	ldi	r24, 0x0C	; 12
+ 482:	0e 94 07 02 	call	0x40e	; 0x40e <lcd_command_sim>
+	lcd_command_sim(0x01);
+ 486:	81 e0       	ldi	r24, 0x01	; 1
+ 488:	0e 94 07 02 	call	0x40e	; 0x40e <lcd_command_sim>
+ 48c:	83 ef       	ldi	r24, 0xF3	; 243
+ 48e:	9b e0       	ldi	r25, 0x0B	; 11
+ 490:	01 97       	sbiw	r24, 0x01	; 1
+ 492:	f1 f7       	brne	.-4      	; 0x490 <__stack+0x31>
+ 494:	00 c0       	rjmp	.+0      	; 0x496 <__stack+0x37>
+ 496:	00 00       	nop
+	_delay_us(1530);
+	lcd_command_sim(0x06);
+ 498:	86 e0       	ldi	r24, 0x06	; 6
+ 49a:	0e 94 07 02 	call	0x40e	; 0x40e <lcd_command_sim>
+ 49e:	08 95       	ret
+
+000004a0 <lcd_string_print>:
+ * Prints string in LCD display
+ * @param[in] string char buffer to be printed
+ * @param[in] limit number of chars to be printed
+*/
+void lcd_string_print(char stringAr[])
+{
+ 4a0:	cf 93       	push	r28
+ 4a2:	df 93       	push	r29
+ 4a4:	ec 01       	movw	r28, r24
+	int j = 0;
+	while (stringAr[j] != '\0' && stringAr[j] != '\n')
+ 4a6:	88 81       	ld	r24, Y
+ 4a8:	88 23       	and	r24, r24
+ 4aa:	51 f0       	breq	.+20     	; 0x4c0 <lcd_string_print+0x20>
+ 4ac:	8a 30       	cpi	r24, 0x0A	; 10
+ 4ae:	41 f0       	breq	.+16     	; 0x4c0 <lcd_string_print+0x20>
+ 4b0:	21 96       	adiw	r28, 0x01	; 1
+	{
+		lcd_data_sim((unsigned char) stringAr[j]);
+ 4b2:	0e 94 ff 01 	call	0x3fe	; 0x3fe <lcd_data_sim>
+ * @param[in] limit number of chars to be printed
+*/
+void lcd_string_print(char stringAr[])
+{
+	int j = 0;
+	while (stringAr[j] != '\0' && stringAr[j] != '\n')
+ 4b6:	89 91       	ld	r24, Y+
+ 4b8:	88 23       	and	r24, r24
+ 4ba:	11 f0       	breq	.+4      	; 0x4c0 <lcd_string_print+0x20>
+ 4bc:	8a 30       	cpi	r24, 0x0A	; 10
+ 4be:	c9 f7       	brne	.-14     	; 0x4b2 <lcd_string_print+0x12>
+	{
+		lcd_data_sim((unsigned char) stringAr[j]);
+		j++;
+	}
+ 4c0:	df 91       	pop	r29
+ 4c2:	cf 91       	pop	r28
+ 4c4:	08 95       	ret
+
+000004c6 <node_init>:
+int nodeIndex, _tmp_;
+volatile unsigned int adc_out, updatedParking;
+
+void node_init
+(char ssid[], char passw[], char hostIP[])
+{
+ 4c6:	ef 92       	push	r14
+ 4c8:	ff 92       	push	r15
+ 4ca:	0f 93       	push	r16
+ 4cc:	1f 93       	push	r17
+ 4ce:	cf 93       	push	r28
+ 4d0:	df 93       	push	r29
+ 4d2:	7c 01       	movw	r14, r24
+ 4d4:	8b 01       	movw	r16, r22
+ 4d6:	ea 01       	movw	r28, r20
+	/* Welcome message */
+	lcd_init();
+ 4d8:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+	lcd_string_print("Node:");
+ 4dc:	8f e3       	ldi	r24, 0x3F	; 63
+ 4de:	91 e0       	ldi	r25, 0x01	; 1
+ 4e0:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+	
+	usart_init(0x00, (1<<RXEN) | (1<<TXEN), (1 << URSEL) | (3 << UCSZ0), 0x33);
+ 4e4:	23 e3       	ldi	r18, 0x33	; 51
+ 4e6:	30 e0       	ldi	r19, 0x00	; 0
+ 4e8:	46 e8       	ldi	r20, 0x86	; 134
+ 4ea:	68 e1       	ldi	r22, 0x18	; 24
+ 4ec:	80 e0       	ldi	r24, 0x00	; 0
+ 4ee:	0e 94 c1 05 	call	0xb82	; 0xb82 <usart_init>
+	
+	/* Set ESP server */
+	usart_transmit('\n');
+ 4f2:	8a e0       	ldi	r24, 0x0A	; 10
+ 4f4:	0e 94 d4 05 	call	0xba8	; 0xba8 <usart_transmit>
+	restartESP();
+ 4f8:	0e 94 ab 00 	call	0x156	; 0x156 <restartESP>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 4fc:	2f ef       	ldi	r18, 0xFF	; 255
+ 4fe:	84 e3       	ldi	r24, 0x34	; 52
+ 500:	9c e0       	ldi	r25, 0x0C	; 12
+ 502:	21 50       	subi	r18, 0x01	; 1
+ 504:	80 40       	sbci	r24, 0x00	; 0
+ 506:	90 40       	sbci	r25, 0x00	; 0
+ 508:	e1 f7       	brne	.-8      	; 0x502 <node_init+0x3c>
+ 50a:	00 c0       	rjmp	.+0      	; 0x50c <node_init+0x46>
+ 50c:	00 00       	nop
+	_delay_ms(500);
+	usart_clear_buffer();
+ 50e:	0e 94 eb 05 	call	0xbd6	; 0xbd6 <usart_clear_buffer>
+	debugESP("true");
+ 512:	85 e4       	ldi	r24, 0x45	; 69
+ 514:	91 e0       	ldi	r25, 0x01	; 1
+ 516:	0e 94 78 00 	call	0xf0	; 0xf0 <debugESP>
+	consume_response();
+ 51a:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <consume_response>
+	ssidESP(ssid);
+ 51e:	c7 01       	movw	r24, r14
+ 520:	0e 94 b0 00 	call	0x160	; 0x160 <ssidESP>
+	consume_response();
+ 524:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <consume_response>
+	passwESP(passw);
+ 528:	c8 01       	movw	r24, r16
+ 52a:	0e 94 9a 00 	call	0x134	; 0x134 <passwESP>
+	consume_response();
+ 52e:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <consume_response>
+	hostESP(hostIP);
+ 532:	ce 01       	movw	r24, r28
+ 534:	0e 94 89 00 	call	0x112	; 0x112 <hostESP>
+	consume_response();
+ 538:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <consume_response>
+	
+ 	/* Connect */
+	connectESP();
+ 53c:	0e 94 73 00 	call	0xe6	; 0xe6 <connectESP>
+	consume_response();
+ 540:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <consume_response>
+	lcd_init();
+ 544:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+	debugESP("false");
+ 548:	8a e4       	ldi	r24, 0x4A	; 74
+ 54a:	91 e0       	ldi	r25, 0x01	; 1
+ 54c:	0e 94 78 00 	call	0xf0	; 0xf0 <debugESP>
+	consume_response();
+ 550:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <consume_response>
+}
+ 554:	df 91       	pop	r29
+ 556:	cf 91       	pop	r28
+ 558:	1f 91       	pop	r17
+ 55a:	0f 91       	pop	r16
+ 55c:	ff 90       	pop	r15
+ 55e:	ef 90       	pop	r14
+ 560:	08 95       	ret
+
+00000562 <changeBleacher>:
+
+void changeBleacher
+(unsigned char hit)
+{
+	if (hit == 0x0A) nodeIndex = 0;
+ 562:	8a 30       	cpi	r24, 0x0A	; 10
+ 564:	29 f4       	brne	.+10     	; 0x570 <changeBleacher+0xe>
+ 566:	10 92 f4 01 	sts	0x01F4, r1	; 0x8001f4 <nodeIndex+0x1>
+ 56a:	10 92 f3 01 	sts	0x01F3, r1	; 0x8001f3 <nodeIndex>
+ 56e:	12 c0       	rjmp	.+36     	; 0x594 <changeBleacher+0x32>
+	if (hit == 0x0B) nodeIndex = 1;
+ 570:	8b 30       	cpi	r24, 0x0B	; 11
+ 572:	39 f4       	brne	.+14     	; 0x582 <changeBleacher+0x20>
+ 574:	81 e0       	ldi	r24, 0x01	; 1
+ 576:	90 e0       	ldi	r25, 0x00	; 0
+ 578:	90 93 f4 01 	sts	0x01F4, r25	; 0x8001f4 <nodeIndex+0x1>
+ 57c:	80 93 f3 01 	sts	0x01F3, r24	; 0x8001f3 <nodeIndex>
+ 580:	08 95       	ret
+	if (hit == 0x0C) nodeIndex = 2;
+ 582:	8c 30       	cpi	r24, 0x0C	; 12
+ 584:	39 f4       	brne	.+14     	; 0x594 <changeBleacher+0x32>
+ 586:	82 e0       	ldi	r24, 0x02	; 2
+ 588:	90 e0       	ldi	r25, 0x00	; 0
+ 58a:	90 93 f4 01 	sts	0x01F4, r25	; 0x8001f4 <nodeIndex+0x1>
+ 58e:	80 93 f3 01 	sts	0x01F3, r24	; 0x8001f3 <nodeIndex>
+ 592:	08 95       	ret
+	if (hit == 0x0D) nodeIndex = 3;
+ 594:	8d 30       	cpi	r24, 0x0D	; 13
+ 596:	31 f4       	brne	.+12     	; 0x5a4 <changeBleacher+0x42>
+ 598:	83 e0       	ldi	r24, 0x03	; 3
+ 59a:	90 e0       	ldi	r25, 0x00	; 0
+ 59c:	90 93 f4 01 	sts	0x01F4, r25	; 0x8001f4 <nodeIndex+0x1>
+ 5a0:	80 93 f3 01 	sts	0x01F3, r24	; 0x8001f3 <nodeIndex>
+ 5a4:	08 95       	ret
+
+000005a6 <updateBleacherLCD>:
+}
+
+void updateBleacherLCD()
+{
+	lcd_init();
+ 5a6:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+	if (nodeIndex == 0) { lcd_string_print("Bleacher A"); }
+ 5aa:	80 91 f3 01 	lds	r24, 0x01F3	; 0x8001f3 <nodeIndex>
+ 5ae:	90 91 f4 01 	lds	r25, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 5b2:	89 2b       	or	r24, r25
+ 5b4:	21 f4       	brne	.+8      	; 0x5be <updateBleacherLCD+0x18>
+ 5b6:	80 e5       	ldi	r24, 0x50	; 80
+ 5b8:	91 e0       	ldi	r25, 0x01	; 1
+ 5ba:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+	if (nodeIndex == 1) { lcd_string_print("Bleacher B"); }
+ 5be:	80 91 f3 01 	lds	r24, 0x01F3	; 0x8001f3 <nodeIndex>
+ 5c2:	90 91 f4 01 	lds	r25, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 5c6:	01 97       	sbiw	r24, 0x01	; 1
+ 5c8:	21 f4       	brne	.+8      	; 0x5d2 <updateBleacherLCD+0x2c>
+ 5ca:	8b e5       	ldi	r24, 0x5B	; 91
+ 5cc:	91 e0       	ldi	r25, 0x01	; 1
+ 5ce:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+	if (nodeIndex == 2) { lcd_string_print("Bleacher C"); }
+ 5d2:	80 91 f3 01 	lds	r24, 0x01F3	; 0x8001f3 <nodeIndex>
+ 5d6:	90 91 f4 01 	lds	r25, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 5da:	02 97       	sbiw	r24, 0x02	; 2
+ 5dc:	21 f4       	brne	.+8      	; 0x5e6 <updateBleacherLCD+0x40>
+ 5de:	86 e6       	ldi	r24, 0x66	; 102
+ 5e0:	91 e0       	ldi	r25, 0x01	; 1
+ 5e2:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+	if (nodeIndex == 3) { lcd_string_print("Bleacher D"); }
+ 5e6:	80 91 f3 01 	lds	r24, 0x01F3	; 0x8001f3 <nodeIndex>
+ 5ea:	90 91 f4 01 	lds	r25, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 5ee:	03 97       	sbiw	r24, 0x03	; 3
+ 5f0:	21 f4       	brne	.+8      	; 0x5fa <updateBleacherLCD+0x54>
+ 5f2:	81 e7       	ldi	r24, 0x71	; 113
+ 5f4:	91 e0       	ldi	r25, 0x01	; 1
+ 5f6:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+ 5fa:	08 95       	ret
+
+000005fc <transformHit>:
+}
+
+unsigned char transformHit(unsigned char hit)
+{
+	switch(hit)
+ 5fc:	90 e0       	ldi	r25, 0x00	; 0
+ 5fe:	fc 01       	movw	r30, r24
+ 600:	f1 97       	sbiw	r30, 0x31	; 49
+ 602:	e4 31       	cpi	r30, 0x14	; 20
+ 604:	f1 05       	cpc	r31, r1
+ 606:	90 f5       	brcc	.+100    	; 0x66c <transformHit+0x70>
+ 608:	e6 5d       	subi	r30, 0xD6	; 214
+ 60a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 60c:	0c 94 f2 05 	jmp	0xbe4	; 0xbe4 <__tablejump2__>
+	{
+		case '1':
+		return 0x00;
+		case '2':
+		return 0x01;
+ 610:	81 e0       	ldi	r24, 0x01	; 1
+ 612:	08 95       	ret
+		case '3':
+		return 0x02;
+ 614:	82 e0       	ldi	r24, 0x02	; 2
+ 616:	08 95       	ret
+		case '4':
+		return 0x03;
+ 618:	83 e0       	ldi	r24, 0x03	; 3
+ 61a:	08 95       	ret
+		case '5':
+		return 0x04;
+ 61c:	84 e0       	ldi	r24, 0x04	; 4
+ 61e:	08 95       	ret
+		case '6':
+		return 0x05;
+ 620:	85 e0       	ldi	r24, 0x05	; 5
+ 622:	08 95       	ret
+		case '7':
+		return 0x06;
+ 624:	86 e0       	ldi	r24, 0x06	; 6
+ 626:	08 95       	ret
+		case '8':
+		return 0x07;
+ 628:	87 e0       	ldi	r24, 0x07	; 7
+ 62a:	08 95       	ret
+		case 'A':
+		lcd_init();
+ 62c:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+		lcd_string_print("Bleacher A");
+ 630:	80 e5       	ldi	r24, 0x50	; 80
+ 632:	91 e0       	ldi	r25, 0x01	; 1
+ 634:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+		return 0x0A;
+ 638:	8a e0       	ldi	r24, 0x0A	; 10
+ 63a:	08 95       	ret
+		case 'B':
+		lcd_init();
+ 63c:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+		lcd_string_print("Bleacher B");
+ 640:	8b e5       	ldi	r24, 0x5B	; 91
+ 642:	91 e0       	ldi	r25, 0x01	; 1
+ 644:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+		return 0x0B;
+ 648:	8b e0       	ldi	r24, 0x0B	; 11
+ 64a:	08 95       	ret
+		case 'C':
+		lcd_init();
+ 64c:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+		lcd_string_print("Bleacher C");
+ 650:	86 e6       	ldi	r24, 0x66	; 102
+ 652:	91 e0       	ldi	r25, 0x01	; 1
+ 654:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+		return 0x0C;
+ 658:	8c e0       	ldi	r24, 0x0C	; 12
+ 65a:	08 95       	ret
+		case 'D':
+		lcd_init();
+ 65c:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+		lcd_string_print("Bleacher D");
+ 660:	81 e7       	ldi	r24, 0x71	; 113
+ 662:	91 e0       	ldi	r25, 0x01	; 1
+ 664:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+		return 0x0D;
+ 668:	8d e0       	ldi	r24, 0x0D	; 13
+ 66a:	08 95       	ret
+		break;
+		default:
+		return 0x08;
+ 66c:	88 e0       	ldi	r24, 0x08	; 8
+ 66e:	08 95       	ret
+unsigned char transformHit(unsigned char hit)
+{
+	switch(hit)
+	{
+		case '1':
+		return 0x00;
+ 670:	80 e0       	ldi	r24, 0x00	; 0
+		return 0x0D;
+		break;
+		default:
+		return 0x08;
+	}
+}
+ 672:	08 95       	ret
+
+00000674 <handleTickets>:
+
+void handleTickets
+(unsigned char hit)
+{
+	if (hit < 0x08)
+ 674:	88 30       	cpi	r24, 0x08	; 8
+ 676:	08 f0       	brcs	.+2      	; 0x67a <handleTickets+0x6>
+ 678:	d3 c0       	rjmp	.+422    	; 0x820 <handleTickets+0x1ac>
+	{
+		switch(nodeIndex)
+ 67a:	20 91 f3 01 	lds	r18, 0x01F3	; 0x8001f3 <nodeIndex>
+ 67e:	30 91 f4 01 	lds	r19, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 682:	21 30       	cpi	r18, 0x01	; 1
+ 684:	31 05       	cpc	r19, r1
+ 686:	e9 f1       	breq	.+122    	; 0x702 <handleTickets+0x8e>
+ 688:	1c f4       	brge	.+6      	; 0x690 <handleTickets+0x1c>
+ 68a:	23 2b       	or	r18, r19
+ 68c:	51 f0       	breq	.+20     	; 0x6a2 <handleTickets+0x2e>
+ 68e:	08 95       	ret
+ 690:	22 30       	cpi	r18, 0x02	; 2
+ 692:	31 05       	cpc	r19, r1
+ 694:	09 f4       	brne	.+2      	; 0x698 <handleTickets+0x24>
+ 696:	65 c0       	rjmp	.+202    	; 0x762 <handleTickets+0xee>
+ 698:	23 30       	cpi	r18, 0x03	; 3
+ 69a:	31 05       	cpc	r19, r1
+ 69c:	09 f4       	brne	.+2      	; 0x6a0 <handleTickets+0x2c>
+ 69e:	91 c0       	rjmp	.+290    	; 0x7c2 <handleTickets+0x14e>
+ 6a0:	08 95       	ret
+		{
+			case 0:
+			if (((ticket0 >> hit) & 0x01) != 0x01)
+ 6a2:	60 91 f2 01 	lds	r22, 0x01F2	; 0x8001f2 <ticket0>
+ 6a6:	26 2f       	mov	r18, r22
+ 6a8:	30 e0       	ldi	r19, 0x00	; 0
+ 6aa:	08 2e       	mov	r0, r24
+ 6ac:	02 c0       	rjmp	.+4      	; 0x6b2 <handleTickets+0x3e>
+ 6ae:	35 95       	asr	r19
+ 6b0:	27 95       	ror	r18
+ 6b2:	0a 94       	dec	r0
+ 6b4:	e2 f7       	brpl	.-8      	; 0x6ae <handleTickets+0x3a>
+ 6b6:	20 fd       	sbrc	r18, 0
+ 6b8:	12 c0       	rjmp	.+36     	; 0x6de <handleTickets+0x6a>
+			{
+				ticket0 = ticket0 | (1 << hit);
+ 6ba:	21 e0       	ldi	r18, 0x01	; 1
+ 6bc:	30 e0       	ldi	r19, 0x00	; 0
+ 6be:	a9 01       	movw	r20, r18
+ 6c0:	02 c0       	rjmp	.+4      	; 0x6c6 <handleTickets+0x52>
+ 6c2:	44 0f       	add	r20, r20
+ 6c4:	55 1f       	adc	r21, r21
+ 6c6:	8a 95       	dec	r24
+ 6c8:	e2 f7       	brpl	.-8      	; 0x6c2 <handleTickets+0x4e>
+ 6ca:	64 2b       	or	r22, r20
+ 6cc:	60 93 f2 01 	sts	0x01F2, r22	; 0x8001f2 <ticket0>
+				sensorAddValue("Ticket0", ticket0);
+ 6d0:	8c e7       	ldi	r24, 0x7C	; 124
+ 6d2:	91 e0       	ldi	r25, 0x01	; 1
+ 6d4:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+				clientTransmit();
+ 6d8:	0e 94 36 01 	call	0x26c	; 0x26c <clientTransmit>
+ 6dc:	08 95       	ret
+			}
+			else
+			{
+				lcd_init();
+ 6de:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+				lcd_string_print("Stop");
+ 6e2:	84 e8       	ldi	r24, 0x84	; 132
+ 6e4:	91 e0       	ldi	r25, 0x01	; 1
+ 6e6:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+ 6ea:	5f ef       	ldi	r21, 0xFF	; 255
+ 6ec:	82 e5       	ldi	r24, 0x52	; 82
+ 6ee:	97 e0       	ldi	r25, 0x07	; 7
+ 6f0:	51 50       	subi	r21, 0x01	; 1
+ 6f2:	80 40       	sbci	r24, 0x00	; 0
+ 6f4:	90 40       	sbci	r25, 0x00	; 0
+ 6f6:	e1 f7       	brne	.-8      	; 0x6f0 <handleTickets+0x7c>
+ 6f8:	00 c0       	rjmp	.+0      	; 0x6fa <handleTickets+0x86>
+ 6fa:	00 00       	nop
+				_delay_ms(300);
+				updateBleacherLCD();
+ 6fc:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <updateBleacherLCD>
+ 700:	08 95       	ret
+			}
+			break;
+			
+			case 1:
+			if (((ticket1 >> hit) & 0x01) != 0x01)
+ 702:	60 91 ed 01 	lds	r22, 0x01ED	; 0x8001ed <ticket1>
+ 706:	26 2f       	mov	r18, r22
+ 708:	30 e0       	ldi	r19, 0x00	; 0
+ 70a:	08 2e       	mov	r0, r24
+ 70c:	02 c0       	rjmp	.+4      	; 0x712 <handleTickets+0x9e>
+ 70e:	35 95       	asr	r19
+ 710:	27 95       	ror	r18
+ 712:	0a 94       	dec	r0
+ 714:	e2 f7       	brpl	.-8      	; 0x70e <handleTickets+0x9a>
+ 716:	20 fd       	sbrc	r18, 0
+ 718:	12 c0       	rjmp	.+36     	; 0x73e <handleTickets+0xca>
+			{
+				ticket1 = ticket1 | (1 << hit);
+ 71a:	21 e0       	ldi	r18, 0x01	; 1
+ 71c:	30 e0       	ldi	r19, 0x00	; 0
+ 71e:	a9 01       	movw	r20, r18
+ 720:	02 c0       	rjmp	.+4      	; 0x726 <handleTickets+0xb2>
+ 722:	44 0f       	add	r20, r20
+ 724:	55 1f       	adc	r21, r21
+ 726:	8a 95       	dec	r24
+ 728:	e2 f7       	brpl	.-8      	; 0x722 <handleTickets+0xae>
+ 72a:	64 2b       	or	r22, r20
+ 72c:	60 93 ed 01 	sts	0x01ED, r22	; 0x8001ed <ticket1>
+				sensorAddValue("Ticket1", ticket1);
+ 730:	89 e8       	ldi	r24, 0x89	; 137
+ 732:	91 e0       	ldi	r25, 0x01	; 1
+ 734:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+				clientTransmit();
+ 738:	0e 94 36 01 	call	0x26c	; 0x26c <clientTransmit>
+ 73c:	08 95       	ret
+			}
+			else
+			{
+				lcd_init();
+ 73e:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+				lcd_string_print("Stop");
+ 742:	84 e8       	ldi	r24, 0x84	; 132
+ 744:	91 e0       	ldi	r25, 0x01	; 1
+ 746:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+ 74a:	5f ef       	ldi	r21, 0xFF	; 255
+ 74c:	82 e5       	ldi	r24, 0x52	; 82
+ 74e:	97 e0       	ldi	r25, 0x07	; 7
+ 750:	51 50       	subi	r21, 0x01	; 1
+ 752:	80 40       	sbci	r24, 0x00	; 0
+ 754:	90 40       	sbci	r25, 0x00	; 0
+ 756:	e1 f7       	brne	.-8      	; 0x750 <handleTickets+0xdc>
+ 758:	00 c0       	rjmp	.+0      	; 0x75a <handleTickets+0xe6>
+ 75a:	00 00       	nop
+				_delay_ms(300);
+				updateBleacherLCD();
+ 75c:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <updateBleacherLCD>
+ 760:	08 95       	ret
+			}
+			break;
+			
+			case 2:
+			if (((ticket2 >> hit) & 0x01) != 0x01)
+ 762:	60 91 f1 01 	lds	r22, 0x01F1	; 0x8001f1 <ticket2>
+ 766:	26 2f       	mov	r18, r22
+ 768:	30 e0       	ldi	r19, 0x00	; 0
+ 76a:	08 2e       	mov	r0, r24
+ 76c:	02 c0       	rjmp	.+4      	; 0x772 <handleTickets+0xfe>
+ 76e:	35 95       	asr	r19
+ 770:	27 95       	ror	r18
+ 772:	0a 94       	dec	r0
+ 774:	e2 f7       	brpl	.-8      	; 0x76e <handleTickets+0xfa>
+ 776:	20 fd       	sbrc	r18, 0
+ 778:	12 c0       	rjmp	.+36     	; 0x79e <handleTickets+0x12a>
+			{
+				ticket2 = ticket2 | (1 << hit);
+ 77a:	21 e0       	ldi	r18, 0x01	; 1
+ 77c:	30 e0       	ldi	r19, 0x00	; 0
+ 77e:	a9 01       	movw	r20, r18
+ 780:	02 c0       	rjmp	.+4      	; 0x786 <handleTickets+0x112>
+ 782:	44 0f       	add	r20, r20
+ 784:	55 1f       	adc	r21, r21
+ 786:	8a 95       	dec	r24
+ 788:	e2 f7       	brpl	.-8      	; 0x782 <handleTickets+0x10e>
+ 78a:	64 2b       	or	r22, r20
+ 78c:	60 93 f1 01 	sts	0x01F1, r22	; 0x8001f1 <ticket2>
+				sensorAddValue("Ticket2", ticket2);
+ 790:	81 e9       	ldi	r24, 0x91	; 145
+ 792:	91 e0       	ldi	r25, 0x01	; 1
+ 794:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+				clientTransmit();
+ 798:	0e 94 36 01 	call	0x26c	; 0x26c <clientTransmit>
+ 79c:	08 95       	ret
+			}
+			else
+			{
+				lcd_init();
+ 79e:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+				lcd_string_print("Stop");
+ 7a2:	84 e8       	ldi	r24, 0x84	; 132
+ 7a4:	91 e0       	ldi	r25, 0x01	; 1
+ 7a6:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+ 7aa:	5f ef       	ldi	r21, 0xFF	; 255
+ 7ac:	82 e5       	ldi	r24, 0x52	; 82
+ 7ae:	97 e0       	ldi	r25, 0x07	; 7
+ 7b0:	51 50       	subi	r21, 0x01	; 1
+ 7b2:	80 40       	sbci	r24, 0x00	; 0
+ 7b4:	90 40       	sbci	r25, 0x00	; 0
+ 7b6:	e1 f7       	brne	.-8      	; 0x7b0 <handleTickets+0x13c>
+ 7b8:	00 c0       	rjmp	.+0      	; 0x7ba <handleTickets+0x146>
+ 7ba:	00 00       	nop
+				_delay_ms(300);
+				updateBleacherLCD();
+ 7bc:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <updateBleacherLCD>
+ 7c0:	08 95       	ret
+			}
+			break;
+			
+			case 3:
+			if (((ticket3 >> hit) & 0x01) != 0x01)
+ 7c2:	60 91 ef 01 	lds	r22, 0x01EF	; 0x8001ef <ticket3>
+ 7c6:	26 2f       	mov	r18, r22
+ 7c8:	30 e0       	ldi	r19, 0x00	; 0
+ 7ca:	08 2e       	mov	r0, r24
+ 7cc:	02 c0       	rjmp	.+4      	; 0x7d2 <handleTickets+0x15e>
+ 7ce:	35 95       	asr	r19
+ 7d0:	27 95       	ror	r18
+ 7d2:	0a 94       	dec	r0
+ 7d4:	e2 f7       	brpl	.-8      	; 0x7ce <handleTickets+0x15a>
+ 7d6:	20 fd       	sbrc	r18, 0
+ 7d8:	12 c0       	rjmp	.+36     	; 0x7fe <handleTickets+0x18a>
+			{
+				ticket3 = ticket3 | (1 << hit);
+ 7da:	21 e0       	ldi	r18, 0x01	; 1
+ 7dc:	30 e0       	ldi	r19, 0x00	; 0
+ 7de:	a9 01       	movw	r20, r18
+ 7e0:	02 c0       	rjmp	.+4      	; 0x7e6 <handleTickets+0x172>
+ 7e2:	44 0f       	add	r20, r20
+ 7e4:	55 1f       	adc	r21, r21
+ 7e6:	8a 95       	dec	r24
+ 7e8:	e2 f7       	brpl	.-8      	; 0x7e2 <handleTickets+0x16e>
+ 7ea:	64 2b       	or	r22, r20
+ 7ec:	60 93 ef 01 	sts	0x01EF, r22	; 0x8001ef <ticket3>
+				sensorAddValue("Ticket3", ticket3);
+ 7f0:	89 e9       	ldi	r24, 0x99	; 153
+ 7f2:	91 e0       	ldi	r25, 0x01	; 1
+ 7f4:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+				clientTransmit();
+ 7f8:	0e 94 36 01 	call	0x26c	; 0x26c <clientTransmit>
+ 7fc:	08 95       	ret
+			}
+			else
+			{
+				lcd_init();
+ 7fe:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+				lcd_string_print("Stop");
+ 802:	84 e8       	ldi	r24, 0x84	; 132
+ 804:	91 e0       	ldi	r25, 0x01	; 1
+ 806:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+ 80a:	5f ef       	ldi	r21, 0xFF	; 255
+ 80c:	82 e5       	ldi	r24, 0x52	; 82
+ 80e:	97 e0       	ldi	r25, 0x07	; 7
+ 810:	51 50       	subi	r21, 0x01	; 1
+ 812:	80 40       	sbci	r24, 0x00	; 0
+ 814:	90 40       	sbci	r25, 0x00	; 0
+ 816:	e1 f7       	brne	.-8      	; 0x810 <handleTickets+0x19c>
+ 818:	00 c0       	rjmp	.+0      	; 0x81a <handleTickets+0x1a6>
+ 81a:	00 00       	nop
+				_delay_ms(300);
+				updateBleacherLCD();
+ 81c:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <updateBleacherLCD>
+ 820:	08 95       	ret
+
+00000822 <__vector_8>:
+	}
+	
+}
+
+ISR(TIMER1_OVF_vect)
+{
+ 822:	1f 92       	push	r1
+ 824:	0f 92       	push	r0
+ 826:	0f b6       	in	r0, 0x3f	; 63
+ 828:	0f 92       	push	r0
+ 82a:	11 24       	eor	r1, r1
+ 82c:	8f 93       	push	r24
+ 82e:	9f 93       	push	r25
+	ADCSRA = (1<<ADEN)|(1<<ADSC)|(1<<ADIE)|(1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0);
+ 830:	8f ec       	ldi	r24, 0xCF	; 207
+ 832:	86 b9       	out	0x06, r24	; 6
+	
+	TCNT1 = 0x6769;
+ 834:	89 e6       	ldi	r24, 0x69	; 105
+ 836:	97 e6       	ldi	r25, 0x67	; 103
+ 838:	9d bd       	out	0x2d, r25	; 45
+ 83a:	8c bd       	out	0x2c, r24	; 44
+}
+ 83c:	9f 91       	pop	r25
+ 83e:	8f 91       	pop	r24
+ 840:	0f 90       	pop	r0
+ 842:	0f be       	out	0x3f, r0	; 63
+ 844:	0f 90       	pop	r0
+ 846:	1f 90       	pop	r1
+ 848:	18 95       	reti
+
+0000084a <__vector_14>:
+
+ISR(ADC_vect)
+{
+ 84a:	1f 92       	push	r1
+ 84c:	0f 92       	push	r0
+ 84e:	0f b6       	in	r0, 0x3f	; 63
+ 850:	0f 92       	push	r0
+ 852:	11 24       	eor	r1, r1
+ 854:	2f 93       	push	r18
+ 856:	3f 93       	push	r19
+ 858:	4f 93       	push	r20
+ 85a:	5f 93       	push	r21
+ 85c:	6f 93       	push	r22
+ 85e:	7f 93       	push	r23
+ 860:	8f 93       	push	r24
+ 862:	9f 93       	push	r25
+ 864:	af 93       	push	r26
+ 866:	bf 93       	push	r27
+ 868:	ef 93       	push	r30
+ 86a:	ff 93       	push	r31
+	adc_out = ADC;
+ 86c:	84 b1       	in	r24, 0x04	; 4
+ 86e:	95 b1       	in	r25, 0x05	; 5
+ 870:	90 93 f7 01 	sts	0x01F7, r25	; 0x8001f7 <adc_out+0x1>
+ 874:	80 93 f6 01 	sts	0x01F6, r24	; 0x8001f6 <adc_out>
+	adc_out = (adc_out / 3) + 0x10;
+ 878:	20 91 f6 01 	lds	r18, 0x01F6	; 0x8001f6 <adc_out>
+ 87c:	30 91 f7 01 	lds	r19, 0x01F7	; 0x8001f7 <adc_out+0x1>
+ 880:	ab ea       	ldi	r26, 0xAB	; 171
+ 882:	ba ea       	ldi	r27, 0xAA	; 170
+ 884:	0e 94 f8 05 	call	0xbf0	; 0xbf0 <__umulhisi3>
+ 888:	96 95       	lsr	r25
+ 88a:	87 95       	ror	r24
+ 88c:	40 96       	adiw	r24, 0x10	; 16
+ 88e:	90 93 f7 01 	sts	0x01F7, r25	; 0x8001f7 <adc_out+0x1>
+ 892:	80 93 f6 01 	sts	0x01F6, r24	; 0x8001f6 <adc_out>
+	if (nodeIndex == 0 && parking0 != ((unsigned char *)&adc_out)[0]) 
+ 896:	80 91 f3 01 	lds	r24, 0x01F3	; 0x8001f3 <nodeIndex>
+ 89a:	90 91 f4 01 	lds	r25, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 89e:	89 2b       	or	r24, r25
+ 8a0:	f9 f4       	brne	.+62     	; 0x8e0 <__vector_14+0x96>
+ 8a2:	80 91 f6 01 	lds	r24, 0x01F6	; 0x8001f6 <adc_out>
+ 8a6:	90 91 ec 01 	lds	r25, 0x01EC	; 0x8001ec <__data_end>
+ 8aa:	89 17       	cp	r24, r25
+ 8ac:	09 f4       	brne	.+2      	; 0x8b0 <__vector_14+0x66>
+ 8ae:	61 c0       	rjmp	.+194    	; 0x972 <__vector_14+0x128>
+	{ 
+		parking0 = ((unsigned char *)&adc_out)[0]; updatedParking = 1;
+ 8b0:	80 93 ec 01 	sts	0x01EC, r24	; 0x8001ec <__data_end>
+ 8b4:	81 e0       	ldi	r24, 0x01	; 1
+ 8b6:	90 e0       	ldi	r25, 0x00	; 0
+ 8b8:	90 93 fc 01 	sts	0x01FC, r25	; 0x8001fc <updatedParking+0x1>
+ 8bc:	80 93 fb 01 	sts	0x01FB, r24	; 0x8001fb <updatedParking>
+		if (parking0 == 0x00) sensorAddValue("Parking0", 0x01);
+ 8c0:	80 91 ec 01 	lds	r24, 0x01EC	; 0x8001ec <__data_end>
+ 8c4:	81 11       	cpse	r24, r1
+ 8c6:	06 c0       	rjmp	.+12     	; 0x8d4 <__vector_14+0x8a>
+ 8c8:	61 e0       	ldi	r22, 0x01	; 1
+ 8ca:	81 ea       	ldi	r24, 0xA1	; 161
+ 8cc:	91 e0       	ldi	r25, 0x01	; 1
+ 8ce:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+ 8d2:	06 c0       	rjmp	.+12     	; 0x8e0 <__vector_14+0x96>
+		else sensorAddValue("Parking0", parking0);
+ 8d4:	60 91 ec 01 	lds	r22, 0x01EC	; 0x8001ec <__data_end>
+ 8d8:	81 ea       	ldi	r24, 0xA1	; 161
+ 8da:	91 e0       	ldi	r25, 0x01	; 1
+ 8dc:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	}
+	if (nodeIndex == 1 && parking1 != ((unsigned char *)&adc_out)[0]) 
+ 8e0:	80 91 f3 01 	lds	r24, 0x01F3	; 0x8001f3 <nodeIndex>
+ 8e4:	90 91 f4 01 	lds	r25, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 8e8:	01 97       	sbiw	r24, 0x01	; 1
+ 8ea:	f9 f4       	brne	.+62     	; 0x92a <__vector_14+0xe0>
+ 8ec:	80 91 f6 01 	lds	r24, 0x01F6	; 0x8001f6 <adc_out>
+ 8f0:	90 91 f0 01 	lds	r25, 0x01F0	; 0x8001f0 <parking1>
+ 8f4:	89 17       	cp	r24, r25
+ 8f6:	09 f4       	brne	.+2      	; 0x8fa <__vector_14+0xb0>
+ 8f8:	60 c0       	rjmp	.+192    	; 0x9ba <__vector_14+0x170>
+	{ 
+		parking1 = ((unsigned char *)&adc_out)[0]; updatedParking = 1;
+ 8fa:	80 93 f0 01 	sts	0x01F0, r24	; 0x8001f0 <parking1>
+ 8fe:	81 e0       	ldi	r24, 0x01	; 1
+ 900:	90 e0       	ldi	r25, 0x00	; 0
+ 902:	90 93 fc 01 	sts	0x01FC, r25	; 0x8001fc <updatedParking+0x1>
+ 906:	80 93 fb 01 	sts	0x01FB, r24	; 0x8001fb <updatedParking>
+		if (parking1 == 0x00) sensorAddValue("Parking1", 0x01);
+ 90a:	80 91 f0 01 	lds	r24, 0x01F0	; 0x8001f0 <parking1>
+ 90e:	81 11       	cpse	r24, r1
+ 910:	06 c0       	rjmp	.+12     	; 0x91e <__vector_14+0xd4>
+ 912:	61 e0       	ldi	r22, 0x01	; 1
+ 914:	8a ea       	ldi	r24, 0xAA	; 170
+ 916:	91 e0       	ldi	r25, 0x01	; 1
+ 918:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+ 91c:	06 c0       	rjmp	.+12     	; 0x92a <__vector_14+0xe0>
+		else sensorAddValue("Parking1", parking1);
+ 91e:	60 91 f0 01 	lds	r22, 0x01F0	; 0x8001f0 <parking1>
+ 922:	8a ea       	ldi	r24, 0xAA	; 170
+ 924:	91 e0       	ldi	r25, 0x01	; 1
+ 926:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	}
+	if (nodeIndex == 2 && parking2 != ((unsigned char *)&adc_out)[0]) 
+ 92a:	80 91 f3 01 	lds	r24, 0x01F3	; 0x8001f3 <nodeIndex>
+ 92e:	90 91 f4 01 	lds	r25, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 932:	02 97       	sbiw	r24, 0x02	; 2
+ 934:	f1 f4       	brne	.+60     	; 0x972 <__vector_14+0x128>
+ 936:	80 91 f6 01 	lds	r24, 0x01F6	; 0x8001f6 <adc_out>
+ 93a:	90 91 fa 01 	lds	r25, 0x01FA	; 0x8001fa <parking2>
+ 93e:	89 17       	cp	r24, r25
+ 940:	e1 f1       	breq	.+120    	; 0x9ba <__vector_14+0x170>
+	{ 
+		parking2 = ((unsigned char *)&adc_out)[0]; updatedParking = 1;
+ 942:	80 93 fa 01 	sts	0x01FA, r24	; 0x8001fa <parking2>
+ 946:	81 e0       	ldi	r24, 0x01	; 1
+ 948:	90 e0       	ldi	r25, 0x00	; 0
+ 94a:	90 93 fc 01 	sts	0x01FC, r25	; 0x8001fc <updatedParking+0x1>
+ 94e:	80 93 fb 01 	sts	0x01FB, r24	; 0x8001fb <updatedParking>
+		if (parking2 == 0x00) sensorAddValue("Parking2", 0x01);
+ 952:	80 91 fa 01 	lds	r24, 0x01FA	; 0x8001fa <parking2>
+ 956:	81 11       	cpse	r24, r1
+ 958:	06 c0       	rjmp	.+12     	; 0x966 <__vector_14+0x11c>
+ 95a:	61 e0       	ldi	r22, 0x01	; 1
+ 95c:	83 eb       	ldi	r24, 0xB3	; 179
+ 95e:	91 e0       	ldi	r25, 0x01	; 1
+ 960:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+ 964:	06 c0       	rjmp	.+12     	; 0x972 <__vector_14+0x128>
+		else sensorAddValue("Parking2", parking2);
+ 966:	60 91 fa 01 	lds	r22, 0x01FA	; 0x8001fa <parking2>
+ 96a:	83 eb       	ldi	r24, 0xB3	; 179
+ 96c:	91 e0       	ldi	r25, 0x01	; 1
+ 96e:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	}
+	if (nodeIndex == 3 && parking3 != ((unsigned char *)&adc_out)[0]) 
+ 972:	80 91 f3 01 	lds	r24, 0x01F3	; 0x8001f3 <nodeIndex>
+ 976:	90 91 f4 01 	lds	r25, 0x01F4	; 0x8001f4 <nodeIndex+0x1>
+ 97a:	03 97       	sbiw	r24, 0x03	; 3
+ 97c:	f1 f4       	brne	.+60     	; 0x9ba <__vector_14+0x170>
+ 97e:	80 91 f6 01 	lds	r24, 0x01F6	; 0x8001f6 <adc_out>
+ 982:	90 91 ee 01 	lds	r25, 0x01EE	; 0x8001ee <parking3>
+ 986:	89 17       	cp	r24, r25
+ 988:	c1 f0       	breq	.+48     	; 0x9ba <__vector_14+0x170>
+	{ 
+		parking3 = ((unsigned char *)&adc_out)[0]; updatedParking = 1;
+ 98a:	80 93 ee 01 	sts	0x01EE, r24	; 0x8001ee <parking3>
+ 98e:	81 e0       	ldi	r24, 0x01	; 1
+ 990:	90 e0       	ldi	r25, 0x00	; 0
+ 992:	90 93 fc 01 	sts	0x01FC, r25	; 0x8001fc <updatedParking+0x1>
+ 996:	80 93 fb 01 	sts	0x01FB, r24	; 0x8001fb <updatedParking>
+		if (parking3 == 0x00) sensorAddValue("Parking3", 0x01);
+ 99a:	80 91 ee 01 	lds	r24, 0x01EE	; 0x8001ee <parking3>
+ 99e:	81 11       	cpse	r24, r1
+ 9a0:	06 c0       	rjmp	.+12     	; 0x9ae <__vector_14+0x164>
+ 9a2:	61 e0       	ldi	r22, 0x01	; 1
+ 9a4:	8c eb       	ldi	r24, 0xBC	; 188
+ 9a6:	91 e0       	ldi	r25, 0x01	; 1
+ 9a8:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+ 9ac:	06 c0       	rjmp	.+12     	; 0x9ba <__vector_14+0x170>
+		else sensorAddValue("Parking3", parking3);
+ 9ae:	60 91 ee 01 	lds	r22, 0x01EE	; 0x8001ee <parking3>
+ 9b2:	8c eb       	ldi	r24, 0xBC	; 188
+ 9b4:	91 e0       	ldi	r25, 0x01	; 1
+ 9b6:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	}
+}
+ 9ba:	ff 91       	pop	r31
+ 9bc:	ef 91       	pop	r30
+ 9be:	bf 91       	pop	r27
+ 9c0:	af 91       	pop	r26
+ 9c2:	9f 91       	pop	r25
+ 9c4:	8f 91       	pop	r24
+ 9c6:	7f 91       	pop	r23
+ 9c8:	6f 91       	pop	r22
+ 9ca:	5f 91       	pop	r21
+ 9cc:	4f 91       	pop	r20
+ 9ce:	3f 91       	pop	r19
+ 9d0:	2f 91       	pop	r18
+ 9d2:	0f 90       	pop	r0
+ 9d4:	0f be       	out	0x3f, r0	; 63
+ 9d6:	0f 90       	pop	r0
+ 9d8:	1f 90       	pop	r1
+ 9da:	18 95       	reti
+
+000009dc <main>:
+
+int main(void)
+{
+	/* Initialize variables */
+	nodeIndex = _tmp_ = 0;
+ 9dc:	10 92 f9 01 	sts	0x01F9, r1	; 0x8001f9 <_tmp_+0x1>
+ 9e0:	10 92 f8 01 	sts	0x01F8, r1	; 0x8001f8 <_tmp_>
+ 9e4:	10 92 f4 01 	sts	0x01F4, r1	; 0x8001f4 <nodeIndex+0x1>
+ 9e8:	10 92 f3 01 	sts	0x01F3, r1	; 0x8001f3 <nodeIndex>
+	
+	ticket0 = ticket1 = ticket2 = ticket3 = 0;
+ 9ec:	10 92 ef 01 	sts	0x01EF, r1	; 0x8001ef <ticket3>
+ 9f0:	10 92 f1 01 	sts	0x01F1, r1	; 0x8001f1 <ticket2>
+ 9f4:	10 92 ed 01 	sts	0x01ED, r1	; 0x8001ed <ticket1>
+ 9f8:	10 92 f2 01 	sts	0x01F2, r1	; 0x8001f2 <ticket0>
+	
+	parking0 = parking1 = parking2 = parking3 = 0x01;
+ 9fc:	81 e0       	ldi	r24, 0x01	; 1
+ 9fe:	80 93 ee 01 	sts	0x01EE, r24	; 0x8001ee <parking3>
+ a02:	80 93 fa 01 	sts	0x01FA, r24	; 0x8001fa <parking2>
+ a06:	80 93 f0 01 	sts	0x01F0, r24	; 0x8001f0 <parking1>
+ a0a:	80 93 ec 01 	sts	0x01EC, r24	; 0x8001ec <__data_end>
+	adc_out = updatedParking = 0;
+ a0e:	10 92 fc 01 	sts	0x01FC, r1	; 0x8001fc <updatedParking+0x1>
+ a12:	10 92 fb 01 	sts	0x01FB, r1	; 0x8001fb <updatedParking>
+ a16:	10 92 f7 01 	sts	0x01F7, r1	; 0x8001f7 <adc_out+0x1>
+ a1a:	10 92 f6 01 	sts	0x01F6, r1	; 0x8001f6 <adc_out>
+	
+	/* Initialize ports */
+	DDRB = 0xEE;
+ a1e:	8e ee       	ldi	r24, 0xEE	; 238
+ a20:	87 bb       	out	0x17, r24	; 23
+	DDRC = 0xF0;
+ a22:	80 ef       	ldi	r24, 0xF0	; 240
+ a24:	84 bb       	out	0x14, r24	; 20
+	DDRD = 0xFF;
+ a26:	8f ef       	ldi	r24, 0xFF	; 255
+ a28:	81 bb       	out	0x11, r24	; 17
+	
+	/*Initialize timer1 */
+	TIMSK = (1<<TOIE1);
+ a2a:	84 e0       	ldi	r24, 0x04	; 4
+ a2c:	89 bf       	out	0x39, r24	; 57
+	TCCR1B = (1<<CS12) | (0<<CS11) | (1<<CS10);
+ a2e:	85 e0       	ldi	r24, 0x05	; 5
+ a30:	8e bd       	out	0x2e, r24	; 46
+	
+	TCNT1 = 0x6769;
+ a32:	89 e6       	ldi	r24, 0x69	; 105
+ a34:	97 e6       	ldi	r25, 0x67	; 103
+ a36:	9d bd       	out	0x2d, r25	; 45
+ a38:	8c bd       	out	0x2c, r24	; 44
+	
+	/* Initialize ADC */
+	ADMUX = (1<<REFS0);
+ a3a:	80 e4       	ldi	r24, 0x40	; 64
+ a3c:	87 b9       	out	0x07, r24	; 7
+	
+	/* Initialize gateway */
+	node_init("kpSSID123456", "kpTest123456", "192.168.4.1");
+ a3e:	45 ec       	ldi	r20, 0xC5	; 197
+ a40:	51 e0       	ldi	r21, 0x01	; 1
+ a42:	61 ed       	ldi	r22, 0xD1	; 209
+ a44:	71 e0       	ldi	r23, 0x01	; 1
+ a46:	8e ed       	ldi	r24, 0xDE	; 222
+ a48:	91 e0       	ldi	r25, 0x01	; 1
+ a4a:	0e 94 63 02 	call	0x4c6	; 0x4c6 <node_init>
+	addSensor("Ticket0"); sensorAddValue("Ticket0", 0xFF);
+ a4e:	8c e7       	ldi	r24, 0x7C	; 124
+ a50:	91 e0       	ldi	r25, 0x01	; 1
+ a52:	0e 94 13 01 	call	0x226	; 0x226 <addSensor>
+ a56:	6f ef       	ldi	r22, 0xFF	; 255
+ a58:	8c e7       	ldi	r24, 0x7C	; 124
+ a5a:	91 e0       	ldi	r25, 0x01	; 1
+ a5c:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	addSensor("Ticket1"); sensorAddValue("Ticket1", 0xFF);
+ a60:	89 e8       	ldi	r24, 0x89	; 137
+ a62:	91 e0       	ldi	r25, 0x01	; 1
+ a64:	0e 94 13 01 	call	0x226	; 0x226 <addSensor>
+ a68:	6f ef       	ldi	r22, 0xFF	; 255
+ a6a:	89 e8       	ldi	r24, 0x89	; 137
+ a6c:	91 e0       	ldi	r25, 0x01	; 1
+ a6e:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	addSensor("Ticket2"); sensorAddValue("Ticket2", 0xFF);
+ a72:	81 e9       	ldi	r24, 0x91	; 145
+ a74:	91 e0       	ldi	r25, 0x01	; 1
+ a76:	0e 94 13 01 	call	0x226	; 0x226 <addSensor>
+ a7a:	6f ef       	ldi	r22, 0xFF	; 255
+ a7c:	81 e9       	ldi	r24, 0x91	; 145
+ a7e:	91 e0       	ldi	r25, 0x01	; 1
+ a80:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	addSensor("Ticket3"); sensorAddValue("Ticket3", 0xFF);
+ a84:	89 e9       	ldi	r24, 0x99	; 153
+ a86:	91 e0       	ldi	r25, 0x01	; 1
+ a88:	0e 94 13 01 	call	0x226	; 0x226 <addSensor>
+ a8c:	6f ef       	ldi	r22, 0xFF	; 255
+ a8e:	89 e9       	ldi	r24, 0x99	; 153
+ a90:	91 e0       	ldi	r25, 0x01	; 1
+ a92:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	addSensor("Parking0"); sensorAddValue("Parking0", parking0);
+ a96:	81 ea       	ldi	r24, 0xA1	; 161
+ a98:	91 e0       	ldi	r25, 0x01	; 1
+ a9a:	0e 94 13 01 	call	0x226	; 0x226 <addSensor>
+ a9e:	60 91 ec 01 	lds	r22, 0x01EC	; 0x8001ec <__data_end>
+ aa2:	81 ea       	ldi	r24, 0xA1	; 161
+ aa4:	91 e0       	ldi	r25, 0x01	; 1
+ aa6:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	addSensor("Parking1"); sensorAddValue("Parking1", parking1);
+ aaa:	8a ea       	ldi	r24, 0xAA	; 170
+ aac:	91 e0       	ldi	r25, 0x01	; 1
+ aae:	0e 94 13 01 	call	0x226	; 0x226 <addSensor>
+ ab2:	60 91 f0 01 	lds	r22, 0x01F0	; 0x8001f0 <parking1>
+ ab6:	8a ea       	ldi	r24, 0xAA	; 170
+ ab8:	91 e0       	ldi	r25, 0x01	; 1
+ aba:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	addSensor("Parking2"); sensorAddValue("Parking2", parking2);
+ abe:	83 eb       	ldi	r24, 0xB3	; 179
+ ac0:	91 e0       	ldi	r25, 0x01	; 1
+ ac2:	0e 94 13 01 	call	0x226	; 0x226 <addSensor>
+ ac6:	60 91 fa 01 	lds	r22, 0x01FA	; 0x8001fa <parking2>
+ aca:	83 eb       	ldi	r24, 0xB3	; 179
+ acc:	91 e0       	ldi	r25, 0x01	; 1
+ ace:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	addSensor("Parking3"); sensorAddValue("Parking3", parking3);
+ ad2:	8c eb       	ldi	r24, 0xBC	; 188
+ ad4:	91 e0       	ldi	r25, 0x01	; 1
+ ad6:	0e 94 13 01 	call	0x226	; 0x226 <addSensor>
+ ada:	60 91 ee 01 	lds	r22, 0x01EE	; 0x8001ee <parking3>
+ ade:	8c eb       	ldi	r24, 0xBC	; 188
+ ae0:	91 e0       	ldi	r25, 0x01	; 1
+ ae2:	0e 94 25 01 	call	0x24a	; 0x24a <sensorAddValue>
+	
+	lcd_init();
+ ae6:	0e 94 0e 02 	call	0x41c	; 0x41c <lcd_init>
+	lcd_string_print("Bleacher A");
+ aea:	80 e5       	ldi	r24, 0x50	; 80
+ aec:	91 e0       	ldi	r25, 0x01	; 1
+ aee:	0e 94 50 02 	call	0x4a0	; 0x4a0 <lcd_string_print>
+	
+	sei();
+ af2:	78 94       	sei
+	
+	while (1)
+	{	
+				
+		/* Read keypad & buttons*/
+		hit = 0;
+ af4:	10 92 f5 01 	sts	0x01F5, r1	; 0x8001f5 <hit>
+		while (hit == 0 && updatedParking == 0)
+ af8:	80 91 fb 01 	lds	r24, 0x01FB	; 0x8001fb <updatedParking>
+ afc:	90 91 fc 01 	lds	r25, 0x01FC	; 0x8001fc <updatedParking+0x1>
+ b00:	89 2b       	or	r24, r25
+ b02:	81 f5       	brne	.+96     	; 0xb64 <main+0x188>
+		{
+			hit = keypad_to_ascii_sim(scan_keypad_rising_edge_sim(_tmp_));
+ b04:	80 91 f8 01 	lds	r24, 0x01F8	; 0x8001f8 <_tmp_>
+ b08:	90 91 f9 01 	lds	r25, 0x01F9	; 0x8001f9 <_tmp_+0x1>
+ b0c:	0e 94 68 01 	call	0x2d0	; 0x2d0 <scan_keypad_rising_edge_sim>
+ b10:	0e 94 83 01 	call	0x306	; 0x306 <keypad_to_ascii_sim>
+ b14:	80 93 f5 01 	sts	0x01F5, r24	; 0x8001f5 <hit>
+	while (1)
+	{	
+				
+		/* Read keypad & buttons*/
+		hit = 0;
+		while (hit == 0 && updatedParking == 0)
+ b18:	81 11       	cpse	r24, r1
+ b1a:	1c c0       	rjmp	.+56     	; 0xb54 <main+0x178>
+ b1c:	80 91 fb 01 	lds	r24, 0x01FB	; 0x8001fb <updatedParking>
+ b20:	90 91 fc 01 	lds	r25, 0x01FC	; 0x8001fc <updatedParking+0x1>
+ b24:	89 2b       	or	r24, r25
+ b26:	71 f3       	breq	.-36     	; 0xb04 <main+0x128>
+ b28:	24 c0       	rjmp	.+72     	; 0xb72 <main+0x196>
+		}
+		
+		/* Parking Handling */
+		if (updatedParking == 1)
+		{
+			updatedParking = 0;
+ b2a:	10 92 fc 01 	sts	0x01FC, r1	; 0x8001fc <updatedParking+0x1>
+ b2e:	10 92 fb 01 	sts	0x01FB, r1	; 0x8001fb <updatedParking>
+			clientTransmit();
+ b32:	0e 94 36 01 	call	0x26c	; 0x26c <clientTransmit>
+		}
+		
+		/* Tickets & Bleacher handling */
+		if (hit != 0)
+ b36:	80 91 f5 01 	lds	r24, 0x01F5	; 0x8001f5 <hit>
+ b3a:	88 23       	and	r24, r24
+ b3c:	d9 f2       	breq	.-74     	; 0xaf4 <main+0x118>
+		{
+			hit = transformHit(hit);
+ b3e:	0e 94 fe 02 	call	0x5fc	; 0x5fc <transformHit>
+ b42:	80 93 f5 01 	sts	0x01F5, r24	; 0x8001f5 <hit>
+			changeBleacher(hit);
+ b46:	0e 94 b1 02 	call	0x562	; 0x562 <changeBleacher>
+			handleTickets(hit);
+ b4a:	80 91 f5 01 	lds	r24, 0x01F5	; 0x8001f5 <hit>
+ b4e:	0e 94 3a 03 	call	0x674	; 0x674 <handleTickets>
+ b52:	d0 cf       	rjmp	.-96     	; 0xaf4 <main+0x118>
+		{
+			hit = keypad_to_ascii_sim(scan_keypad_rising_edge_sim(_tmp_));
+		}
+		
+		/* Parking Handling */
+		if (updatedParking == 1)
+ b54:	20 91 fb 01 	lds	r18, 0x01FB	; 0x8001fb <updatedParking>
+ b58:	30 91 fc 01 	lds	r19, 0x01FC	; 0x8001fc <updatedParking+0x1>
+ b5c:	21 30       	cpi	r18, 0x01	; 1
+ b5e:	31 05       	cpc	r19, r1
+ b60:	21 f3       	breq	.-56     	; 0xb2a <main+0x14e>
+ b62:	ed cf       	rjmp	.-38     	; 0xb3e <main+0x162>
+ b64:	80 91 fb 01 	lds	r24, 0x01FB	; 0x8001fb <updatedParking>
+ b68:	90 91 fc 01 	lds	r25, 0x01FC	; 0x8001fc <updatedParking+0x1>
+ b6c:	01 97       	sbiw	r24, 0x01	; 1
+ b6e:	11 f6       	brne	.-124    	; 0xaf4 <main+0x118>
+ b70:	dc cf       	rjmp	.-72     	; 0xb2a <main+0x14e>
+ b72:	80 91 fb 01 	lds	r24, 0x01FB	; 0x8001fb <updatedParking>
+ b76:	90 91 fc 01 	lds	r25, 0x01FC	; 0x8001fc <updatedParking+0x1>
+ b7a:	01 97       	sbiw	r24, 0x01	; 1
+ b7c:	09 f0       	breq	.+2      	; 0xb80 <main+0x1a4>
+ b7e:	ba cf       	rjmp	.-140    	; 0xaf4 <main+0x118>
+ b80:	d4 cf       	rjmp	.-88     	; 0xb2a <main+0x14e>
+
+00000b82 <usart_init>:
+ * @param[in] ucsrc control register
+ * @param[in] ubrr baud rate register
+*/
+void usart_init
+(unsigned char ucsra, unsigned char ucsrb, unsigned char ucsrc, unsigned int ubrr)
+{
+ b82:	cf 93       	push	r28
+ b84:	df 93       	push	r29
+ b86:	00 d0       	rcall	.+0      	; 0xb88 <usart_init+0x6>
+ b88:	cd b7       	in	r28, 0x3d	; 61
+ b8a:	de b7       	in	r29, 0x3e	; 62
+ b8c:	3a 83       	std	Y+2, r19	; 0x02
+ b8e:	29 83       	std	Y+1, r18	; 0x01
+	UCSRA = ucsra;
+ b90:	8b b9       	out	0x0b, r24	; 11
+	UCSRB = ucsrb;
+ b92:	6a b9       	out	0x0a, r22	; 10
+	UCSRC = ucsrc;
+ b94:	40 bd       	out	0x20, r20	; 32
+	UBRRL = ((unsigned char *)&ubrr)[0];
+ b96:	89 81       	ldd	r24, Y+1	; 0x01
+ b98:	89 b9       	out	0x09, r24	; 9
+	UBRRH = ((unsigned char *)&ubrr)[1];
+ b9a:	8a 81       	ldd	r24, Y+2	; 0x02
+ b9c:	80 bd       	out	0x20, r24	; 32
+}
+ b9e:	0f 90       	pop	r0
+ ba0:	0f 90       	pop	r0
+ ba2:	df 91       	pop	r29
+ ba4:	cf 91       	pop	r28
+ ba6:	08 95       	ret
+
+00000ba8 <usart_transmit>:
+ * @param[in] data byte to be transmitted
+*/
+void usart_transmit
+(unsigned char data)
+{
+	while (((UCSRA >> UDRE) & 0x01) == 0x00);
+ ba8:	5d 9b       	sbis	0x0b, 5	; 11
+ baa:	fe cf       	rjmp	.-4      	; 0xba8 <usart_transmit>
+	UDR = data;
+ bac:	8c b9       	out	0x0c, r24	; 12
+ bae:	08 95       	ret
+
+00000bb0 <usart_receive>:
+ * Receives a byte of data
+ * @param[out] UDR data register
+*/
+unsigned char usart_receive()
+{
+	while (((UCSRA >> RXC) & 0x01) == 0x00);
+ bb0:	5f 9b       	sbis	0x0b, 7	; 11
+ bb2:	fe cf       	rjmp	.-4      	; 0xbb0 <usart_receive>
+	return UDR;
+ bb4:	8c b1       	in	r24, 0x0c	; 12
+}
+ bb6:	08 95       	ret
+
+00000bb8 <usart_transmit_string>:
+ * Sends a string of data
+ * @param[in] string data string to be transmitted
+*/
+void usart_transmit_string
+(char string[])
+{
+ bb8:	cf 93       	push	r28
+ bba:	df 93       	push	r29
+ bbc:	ec 01       	movw	r28, r24
+	for (int i = 0; string[i] != '\0'; ++i)
+ bbe:	88 81       	ld	r24, Y
+ bc0:	88 23       	and	r24, r24
+ bc2:	31 f0       	breq	.+12     	; 0xbd0 <usart_transmit_string+0x18>
+ bc4:	21 96       	adiw	r28, 0x01	; 1
+	usart_transmit(string[i]);
+ bc6:	0e 94 d4 05 	call	0xba8	; 0xba8 <usart_transmit>
+ * @param[in] string data string to be transmitted
+*/
+void usart_transmit_string
+(char string[])
+{
+	for (int i = 0; string[i] != '\0'; ++i)
+ bca:	89 91       	ld	r24, Y+
+ bcc:	81 11       	cpse	r24, r1
+ bce:	fb cf       	rjmp	.-10     	; 0xbc6 <usart_transmit_string+0xe>
+	usart_transmit(string[i]);
+}
+ bd0:	df 91       	pop	r29
+ bd2:	cf 91       	pop	r28
+ bd4:	08 95       	ret
+
+00000bd6 <usart_clear_buffer>:
+/**
+ * Clears USART buffer
+*/
+void usart_clear_buffer()
+{
+	while (((UCSRA >> RXC) & 0x01) != 0x00) usart_receive();
+ bd6:	5f 9b       	sbis	0x0b, 7	; 11
+ bd8:	04 c0       	rjmp	.+8      	; 0xbe2 <usart_clear_buffer+0xc>
+ bda:	0e 94 d8 05 	call	0xbb0	; 0xbb0 <usart_receive>
+ bde:	5f 99       	sbic	0x0b, 7	; 11
+ be0:	fc cf       	rjmp	.-8      	; 0xbda <usart_clear_buffer+0x4>
+ be2:	08 95       	ret
+
+00000be4 <__tablejump2__>:
+ be4:	ee 0f       	add	r30, r30
+ be6:	ff 1f       	adc	r31, r31
+ be8:	05 90       	lpm	r0, Z+
+ bea:	f4 91       	lpm	r31, Z
+ bec:	e0 2d       	mov	r30, r0
+ bee:	09 94       	ijmp
+
+00000bf0 <__umulhisi3>:
+ bf0:	a2 9f       	mul	r26, r18
+ bf2:	b0 01       	movw	r22, r0
+ bf4:	b3 9f       	mul	r27, r19
+ bf6:	c0 01       	movw	r24, r0
+ bf8:	a3 9f       	mul	r26, r19
+ bfa:	70 0d       	add	r23, r0
+ bfc:	81 1d       	adc	r24, r1
+ bfe:	11 24       	eor	r1, r1
+ c00:	91 1d       	adc	r25, r1
+ c02:	b2 9f       	mul	r27, r18
+ c04:	70 0d       	add	r23, r0
+ c06:	81 1d       	adc	r24, r1
+ c08:	11 24       	eor	r1, r1
+ c0a:	91 1d       	adc	r25, r1
+ c0c:	08 95       	ret
+
+00000c0e <_exit>:
+ c0e:	f8 94       	cli
+
+00000c10 <__stop_program>:
+ c10:	ff cf       	rjmp	.-2      	; 0xc10 <__stop_program>
